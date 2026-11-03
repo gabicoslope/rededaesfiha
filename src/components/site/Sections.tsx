@@ -1,3 +1,4 @@
+export { Hero } from "./Hero";
 export { OrderSection } from "./OrderSection";
 export { MenuSection } from "./MenuSection";
 export { CouponSection } from "./CouponSection";

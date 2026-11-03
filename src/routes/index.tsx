@@ -7,6 +7,7 @@ import {
   FloatingCta,
   FloatingWhatsApp,
   Footer,
+  Hero,
   LocationSection,
   MenuSection,
   OrderSection,
@@ -88,9 +89,10 @@ function Index() {
     <div className="min-w-0 overflow-x-clip bg-champagne pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-0">
       <Header />
       <main>
-        <BannerCarousel />
+        <Hero />
         <OrderSection />
         <MenuSection />
+        <BannerCarousel />
         <CouponSection />
         <AmbientSection />
         <ReviewsSection />
