@@ -1,4 +1,4 @@
-import { CreditCard, ShoppingBag } from "lucide-react";
+import { CreditCard } from "lucide-react";
 import celularRecorte from "@/assets/celular-anota-ai-recorte.webp";
 import { ORDER_URL } from "./data";
 import { Reveal } from "./Reveal";
@@ -27,7 +27,6 @@ export function OrderSection() {
           </a>
           <ul className="mt-6 flex flex-wrap justify-center gap-2 text-[13px] font-semibold text-brand-white md:mt-8 md:justify-start md:text-sm">
             {[
-              { icon: ShoppingBag, text: "Pedido mínimo R$ 19,99" },
               { icon: CreditCard, text: "Pix, cartão e vale-refeição" },
             ].map(({ icon: Icon, text }) => (
               <li key={text} className="inline-flex items-center gap-2 rounded-full bg-brand-white/12 px-3.5 py-2">

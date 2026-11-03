@@ -38,6 +38,11 @@ export function MenuSection() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-10 flex justify-center md:mt-14">
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-base bg-burgundy px-10 text-brand-white hover:bg-brand-red-deep">
+            Ver cardápio completo
+          </a>
+        </Reveal>
       </div>
     </section>
   );

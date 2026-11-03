@@ -29,7 +29,6 @@ function imageFor(id: BannerId, size: "desktop" | "mobile") {
 }
 
 export const banners: BannerSlide[] = [
-  { id: "cupom", eyebrow: "Cupom do site", headline: "25% OFF no seu pedido pelo Anota Aí com o cupom CUPOMSITE25. Exclusivo Vila Moraes, pedido mínimo de R$ 50", cta: "Pedir com desconto", href: ORDER_URL, theme: "yellow" },
   { id: "pedido", eyebrow: "Peça agora", headline: "Deu fome? Peça agora pelo Anota Aí ou WhatsApp. Seu pedido, do seu jeito", cta: "Pedir agora", href: ORDER_URL, theme: "red" },
   // TODO: trocar pelo WhatsApp de eventos quando o João definir (por enquanto vai pro WhatsApp da unidade)
   { id: "festas", eyebrow: "Festas e eventos", headline: "Sua comemoração é aqui! Aniversários e confraternizações na unidade Vila Moraes. Faça sua reserva", cta: "Fazer reserva", href: EVENTS_WHATSAPP_URL, theme: "black" },

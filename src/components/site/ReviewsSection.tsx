@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { GOOGLE_REVIEWS_URL, reviews } from "./data";
 import { Reveal } from "./Reveal";
 import { Palavras } from "./Palavras";
-import salaoFundo from "@/assets/ambiente-superior-1.webp";
 
 function Stars() {
   return (
@@ -54,18 +53,15 @@ export function ReviewsSection() {
   return (
     <section
       id="avaliacoes"
-      className="relative isolate overflow-hidden bg-espresso section-y"
+      className="relative overflow-hidden bg-champagne section-y"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
       onFocusCapture={() => (paused.current = true)}
       onBlurCapture={() => (paused.current = false)}
     >
-      {/* foto real do salão de fundo, escurecida pra leitura */}
-      <img src={salaoFundo} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(15_16_24/0.9),rgb(15_16_24/0.78)_45%,rgb(15_16_24/0.92))]" />
       <div className="container-page">
         <Reveal>
-          <h2 className="heading-display mx-auto max-w-xl text-center text-champagne">
+          <h2 className="heading-display mx-auto max-w-xl text-center text-espresso">
             <Palavras>Veja o que dizem sobre a gente</Palavras>
           </h2>
         </Reveal>
@@ -133,7 +129,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p - 1 + pageCount) % pageCount)}
             aria-label="Avaliações anteriores"
-            className="size-10 rounded-full border border-gold/50 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
+            className="size-10 rounded-full border border-espresso/20 bg-brand-white text-espresso transition-[scale] hover:scale-110 hover:bg-burgundy hover:text-brand-white"
           >
             <ChevronLeft />
           </Button>
@@ -149,7 +145,7 @@ export function ReviewsSection() {
                 aria-current={page === i ? "page" : undefined}
                 className="size-8 rounded-full hover:bg-transparent"
               >
-                <span className={`block h-2.5 rounded-full transition-all duration-300 ${page === i ? "w-6 bg-gold" : "w-2.5 bg-brand-white/40"}`} />
+                <span className={`block h-2.5 rounded-full transition-all duration-300 ${page === i ? "w-6 bg-burgundy" : "w-2.5 bg-espresso/25"}`} />
               </Button>
             ))}
           </div>
@@ -159,7 +155,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p + 1) % pageCount)}
             aria-label="Próximas avaliações"
-            className="size-10 rounded-full border border-gold/50 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
+            className="size-10 rounded-full border border-espresso/20 bg-brand-white text-espresso transition-[scale] hover:scale-110 hover:bg-burgundy hover:text-brand-white"
           >
             <ChevronRight />
           </Button>
@@ -170,7 +166,7 @@ export function ReviewsSection() {
             href={GOOGLE_REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-base bg-gold text-espresso hover:bg-gold-contrast"
+            className="btn-base bg-burgundy text-brand-white hover:bg-brand-red-deep"
           >
             Ver avaliações no Google
           </a>

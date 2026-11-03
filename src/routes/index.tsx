@@ -11,6 +11,7 @@ import {
   LocationSection,
   MenuSection,
   OrderSection,
+  ReviewsSection,
 } from "@/components/site/Sections";
 import boardAsset from "@/assets/IMGP9352.jpg";
 import {
@@ -88,8 +89,9 @@ function Index() {
         <Hero />
         <MenuSection />
         <BannerCarousel />
-        <CouponSection />
         <AmbientSection />
+        <CouponSection />
+        <ReviewsSection />
         <OrderSection />
         {/* Avaliações fora por enquanto (pedido da Gabi em 02/11); o componente continua em ReviewsSection.tsx */}
         <LocationSection />
