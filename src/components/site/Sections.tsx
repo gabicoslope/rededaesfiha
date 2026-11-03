@@ -1,0 +1,11 @@
+export { Hero } from "./Hero";
+export { OrderSection } from "./OrderSection";
+export { MenuSection } from "./MenuSection";
+export { CouponSection } from "./CouponSection";
+export { ReviewsSection } from "./ReviewsSection";
+export { LocationSection } from "./LocationSection";
+export { AmbientSection } from "./AmbientSection";
+export { FaqSection } from "./FaqSection";
+export { Footer } from "./Footer";
+export { FloatingCta } from "./FloatingCta";
+export { FloatingWhatsApp } from "./FloatingWhatsApp";

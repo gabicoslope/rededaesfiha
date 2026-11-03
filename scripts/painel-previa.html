@@ -1,0 +1,139 @@
+<!-- Painel de teste de fontes e paletas. Entra SÓ no artefato de prévia
+     (scripts/preparar-artefato.py), nunca no site publicado. -->
+<style id="pv-ui">
+  #pv{position:fixed;top:96px;right:14px;z-index:2147483000;font:13px/1.35 system-ui,sans-serif;color:#1f1f1f}
+  #pv-toggle{display:flex;align-items:center;gap:8px;background:#1f1f1f;color:#fff;border:0;border-radius:999px;padding:9px 14px;font:600 13px system-ui,sans-serif;cursor:pointer;box-shadow:0 10px 24px -10px rgb(0 0 0/.6)}
+  #pv-toggle i{width:12px;height:12px;border-radius:50%;background:conic-gradient(#BD2020 0 33%,#FDB833 0 66%,#fff 0)}
+  #pv-card{margin-top:8px;width:270px;background:#fff;border-radius:14px;padding:14px;box-shadow:0 20px 50px -18px rgb(0 0 0/.55)}
+  #pv-card[hidden]{display:none}
+  #pv h4{margin:12px 0 6px;font:700 11px system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#777}
+  #pv h4:first-child{margin-top:0}
+  .pv-opts{display:flex;flex-wrap:wrap;gap:6px}
+  .pv-opts button{border:1px solid #ddd;background:#fff;border-radius:8px;padding:6px 9px;cursor:pointer;font-size:13px;color:#1f1f1f}
+  .pv-opts button[aria-pressed="true"]{background:#1f1f1f;border-color:#1f1f1f;color:#fff}
+  .pv-sw{display:inline-flex;gap:2px;margin-right:6px;vertical-align:-2px}
+  .pv-sw b{width:9px;height:12px;border-radius:2px;display:inline-block}
+  #pv p{margin:10px 0 0;font-size:11.5px;color:#777}
+  @media (max-width:640px){#pv{top:auto;bottom:150px;right:10px}#pv-card{width:240px}}
+</style>
+<style id="pv-css"></style>
+<script>
+(function () {
+  // carrega as fontes de teste pelo <head> (no fim do <body> o claude.ai pode ignorar)
+  var FONTES_URL = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@400;500;700;800&family=Lilita+One&family=Cherry+Bomb+One&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap";
+  if (!document.getElementById("pv-fontes")) {
+    var lk = document.createElement("link");
+    lk.id = "pv-fontes"; lk.rel = "stylesheet"; lk.href = FONTES_URL;
+    document.head.appendChild(lk);
+  }
+  var TOKENS_NOVOS =
+    ":root{--color-burgundy:#BD2020!important;--color-brand-red-deep:#931717!important;--color-gold:#FDB833!important;" +
+    "--color-gold-contrast:#FFC95C!important;--color-espresso:#1F1F1F!important;--color-cocoa:#161616!important;--color-champagne:#FFFFFF!important}";
+
+  var PRETO = "#1F1F1F", AMARELO = "#FDB833", VERMELHO = "#BD2020";
+  var HEADER_PRETO =
+    "header,header .bg-champagne{background:" + PRETO + "!important;border-color:transparent!important}" +
+    "header a:not(.btn-base),header button{color:#fff!important}";
+
+  var PALETAS = {
+    atual: { nome: "Atual", cores: ["#E41A1A", "#F5B400", "#0F1018", "#F0E5D3"], css: "" },
+    nova: { nome: "Nova paleta", cores: [VERMELHO, AMARELO, PRETO, "#FFFFFF"], css: TOKENS_NOVOS },
+    preto: {
+      nome: "Mais preto",
+      cores: [PRETO, VERMELHO, AMARELO, "#FFFFFF"],
+      css:
+        TOKENS_NOVOS + HEADER_PRETO +
+        "#pedido{background:" + PRETO + "!important}" +
+        "#cupom{background:" + VERMELHO + "!important}#cupom a.btn-base{background:" + PRETO + "!important}" +
+        "#nosso-ambiente{background:" + PRETO + "!important}" +
+        "#avaliacoes{background:" + AMARELO + "!important}#avaliacoes h2{color:" + PRETO + "!important}" +
+        "#avaliacoes a.rounded-2xl{background:#fff!important}" +
+        "#avaliacoes button{color:" + PRETO + "!important;border-color:" + PRETO + "!important}" +
+        "#avaliacoes button span{background:rgb(31 31 31/.3)!important}#avaliacoes button[aria-current] span{background:" + PRETO + "!important}" +
+        "#avaliacoes a.btn-base{background:" + PRETO + "!important;color:#fff!important}" +
+        "footer{background:" + PRETO + "!important}footer .bg-espresso{background:" + VERMELHO + "!important}"
+    },
+    pretoamarelo: {
+      nome: "Preto e amarelo",
+      cores: [PRETO, AMARELO, VERMELHO, "#FFFFFF"],
+      css:
+        TOKENS_NOVOS +
+        "#pedido{background:" + PRETO + "!important}" +
+        "#cardapio{background:" + PRETO + "!important}#cardapio h2{color:" + AMARELO + "!important}#cardapio p{color:#fff!important}" +
+        "#cupom{background:" + AMARELO + "!important}#cupom h2{color:" + PRETO + "!important}#cupom a.btn-base{background:" + PRETO + "!important}"
+    }
+  };
+
+  var FONTES = {
+    sansita: { nome: "Sansita", fam: '"Sansita"', peso: 400 },
+    poppins: { nome: "Poppins", fam: '"Poppins"', peso: 700, ls: "-0.02em" },
+    fredoka: { nome: "Fredoka", fam: '"Fredoka"', peso: 600 },
+    baloo: { nome: "Baloo 2", fam: '"Baloo 2"', peso: 800 },
+    lilita: { nome: "Lilita One", fam: '"Lilita One"', peso: 400 },
+    cherry: { nome: "Cherry Bomb", fam: '"Cherry Bomb One"', peso: 400 }
+  };
+  var TEXTOS = {
+    nunito: { nome: "Nunito", fam: '"Nunito"' },
+    poppins: { nome: "Poppins", fam: '"Poppins"' },
+    quicksand: { nome: "Quicksand", fam: '"Quicksand"', peso: 500 },
+    fredoka: { nome: "Fredoka", fam: '"Fredoka"' },
+    baloo: { nome: "Baloo 2", fam: '"Baloo 2"', peso: 500 }
+  };
+
+  var estado = { paleta: "atual", fonte: "sansita", texto: "nunito" };
+  try { Object.assign(estado, JSON.parse(localStorage.getItem("pv-estado") || "{}")); } catch (e) {}
+
+  function aplicar() {
+    var f = FONTES[estado.fonte] || FONTES.sansita, t = TEXTOS[estado.texto] || TEXTOS.nunito;
+    var css = (PALETAS[estado.paleta] || PALETAS.atual).css +
+      ":root{--font-display:" + f.fam + ",sans-serif!important;--font-sans:" + t.fam + ",sans-serif!important}" +
+      ".heading-display{font-weight:" + f.peso + "!important;letter-spacing:" + (f.ls || "0") + "!important}" +
+      ".font-display{font-weight:" + Math.max(f.peso, 600) + "!important}" +
+      "body,body p,body li,body a,body button,body input,body span,body small{font-family:" + t.fam + ",sans-serif}" +
+      "body .heading-display,body .font-display,body h1,body h2{font-family:" + f.fam + ",sans-serif!important}" +
+      (t.peso ? "body p,body li{font-weight:" + t.peso + "}" : "");
+    document.getElementById("pv-css").textContent = css;
+    document.querySelectorAll("#pv [data-k]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(estado[b.dataset.k] === b.dataset.v));
+    });
+    try { localStorage.setItem("pv-estado", JSON.stringify(estado)); } catch (e) {}
+  }
+
+  function grupo(titulo, chave, opcoes, swatch) {
+    var h = '<h4>' + titulo + '</h4><div class="pv-opts">';
+    Object.keys(opcoes).forEach(function (k) {
+      var o = opcoes[k], sw = "";
+      if (swatch) sw = '<span class="pv-sw">' + o.cores.map(function (c) { return '<b style="background:' + c + ';box-shadow:inset 0 0 0 1px rgb(0 0 0/.15)"></b>'; }).join("") + "</span>";
+      var estilo = o.fam ? ' style="font-family:' + o.fam.replace(/"/g, "'") + '"' : "";
+      h += '<button type="button" data-k="' + chave + '" data-v="' + k + '"' + estilo + ">" + sw + o.nome + "</button>";
+    });
+    return h + "</div>";
+  }
+
+  function montar() {
+    var el = document.createElement("div");
+    el.id = "pv";
+    el.innerHTML =
+      '<button type="button" id="pv-toggle" aria-expanded="true"><i></i>Testar estilos</button>' +
+      '<div id="pv-card">' +
+      grupo("Fonte dos títulos", "fonte", FONTES) +
+      grupo("Fonte do texto", "texto", TEXTOS) +
+      grupo("Paleta", "paleta", PALETAS, true) +
+      "<p>Só aparece nesta prévia. A escolha fica salva neste navegador.</p></div>";
+    document.body.appendChild(el);
+    var card = el.querySelector("#pv-card"), tg = el.querySelector("#pv-toggle");
+    tg.onclick = function () { card.hidden = !card.hidden; tg.setAttribute("aria-expanded", String(!card.hidden)); };
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-k]");
+      if (!b) return;
+      estado[b.dataset.k] = b.dataset.v;
+      aplicar();
+    });
+    aplicar();
+  }
+
+  // espera o React terminar de montar a página antes de mexer no <body>
+  function iniciar() { setTimeout(montar, 1200); }
+  if (document.readyState === "complete") iniciar(); else window.addEventListener("load", iniciar);
+})();
+</script>
