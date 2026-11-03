@@ -31,22 +31,22 @@ export function CouponSection() {
   return (
     <section id="cupom" className="grid overflow-hidden bg-burgundy md:min-h-[36rem] md:grid-cols-[1fr_minmax(24rem,36%)]">
       {/* lado vermelho */}
-      <div className="relative flex items-center gap-4 overflow-hidden px-5 py-7 text-brand-white md:gap-0 md:py-20 md:pl-[26rem] md:pr-12 lg:pl-[32rem]">
+      <div className="relative flex flex-col items-center gap-4 overflow-hidden px-5 pb-8 pt-7 text-center text-brand-white md:flex-row md:gap-0 md:text-left md:py-20 md:pl-[26rem] md:pr-12 lg:pl-[32rem]">
         <motion.img
           src={esfihas}
           alt="Tábua com esfihas abertas salgadas"
           width={640}
           height={640}
           loading="lazy"
-          className="w-28 shrink-0 rounded-full md:absolute md:-left-28 md:top-1/2 md:w-[32rem] md:-translate-y-1/2 md:translate-x-0 lg:-left-20 lg:w-[36rem]"
+          className="w-36 shrink-0 rounded-full md:absolute md:-left-28 md:top-1/2 md:w-[32rem] md:-translate-y-1/2 md:translate-x-0 lg:-left-20 lg:w-[36rem]"
           {...enter(0, { x: -40 })}
         />
-        <motion.div className="relative min-w-0 flex-1 text-left" {...enter(0.1, { y: 20 })}>
-          <p className="font-display text-lg font-bold text-gold md:text-3xl">Exclusivo do site</p>
-          <h2 className="font-display text-[2.1rem] font-bold leading-[0.95] md:mt-1 md:text-7xl md:leading-[0.9] lg:text-8xl">
+        <motion.div className="relative min-w-0 md:flex-1" {...enter(0.1, { y: 20 })}>
+          <p className="font-display text-base font-bold text-gold md:text-3xl">Exclusivo do site</p>
+          <h2 className="font-display text-[2.25rem] font-bold leading-none md:mt-1 md:text-7xl md:leading-[0.9] lg:text-8xl">
             Cupom de desconto
           </h2>
-          <ul className="mt-3 flex flex-col gap-1 text-[13px] font-semibold text-brand-white md:mt-7 md:flex-row md:flex-wrap md:gap-x-6 md:gap-y-2 md:text-base">
+          <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-[13px] font-semibold text-brand-white md:mt-7 md:justify-start md:gap-x-6 md:gap-y-2 md:text-base">
             <li className="inline-flex items-center gap-2"><MapPin className="size-5 text-gold" aria-hidden="true" />Só na Vila Moraes</li>
             <li className="inline-flex items-center gap-2"><Store className="size-5 text-gold" aria-hidden="true" />Pedindo pelo Anota Aí</li>
             <li className="inline-flex items-center gap-2"><ShoppingBag className="size-5 text-gold" aria-hidden="true" />Pedido mínimo R$ 50</li>
@@ -58,24 +58,24 @@ export function CouponSection() {
       <div className="relative flex flex-col justify-center bg-brand-white px-5 pb-7 pt-8 text-center md:px-12 md:py-16">
         <span
           aria-hidden="true"
-          className="absolute -top-4 left-[3.25rem] size-8 rotate-45 md:size-10 bg-brand-white md:-left-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0"
+          className="absolute -top-4 left-1/2 size-8 -translate-x-1/2 rotate-45 md:size-10 bg-brand-white md:-left-5 md:top-1/2 md:-translate-y-1/2 md:translate-x-0"
         />
         <motion.div {...enter(0.2, { x: 40 })}>
-          <div className="flex items-end justify-center gap-3 md:block">
-            <p className="font-display text-[5rem] font-bold leading-[0.8] text-burgundy md:text-[10rem]">
+          <div className="flex items-baseline justify-center gap-2 md:block">
+            <p className="font-display text-[4rem] font-bold leading-none text-burgundy md:text-[10rem]">
               25<span className="text-[0.6em]">%</span>
             </p>
-            <p className="pb-1 text-left font-display text-2xl font-bold leading-none text-espresso md:mt-2 md:pb-0 md:text-center md:text-3xl">
-              de <br className="md:hidden" />desconto
+            <p className="font-display text-[1.6rem] font-bold leading-none text-espresso md:mt-2 md:text-3xl">
+              de desconto
             </p>
           </div>
 
-          <div className="mx-auto mt-5 grid max-w-sm grid-cols-[1fr_auto] gap-2.5 md:mt-8 md:grid-cols-1 md:gap-3">
+          <div className="mx-auto mt-4 grid max-w-sm grid-cols-[1fr_auto] gap-2.5 md:mt-8 md:grid-cols-1 md:gap-3">
             <button
               type="button"
               onClick={copy}
               aria-label={`Copiar o código ${COUPON}`}
-              className="flex h-12 min-w-0 items-center justify-center rounded-lg border-2 border-dashed border-burgundy text-lg font-extrabold tracking-[0.08em] md:h-16 md:text-2xl md:tracking-[0.12em] text-espresso transition-colors hover:bg-burgundy/5"
+              className="flex h-12 min-w-0 items-center justify-center rounded-lg border-2 border-dashed border-burgundy text-base font-extrabold tracking-[0.08em] md:h-16 md:text-2xl md:tracking-[0.12em] text-espresso transition-colors hover:bg-burgundy/5"
             >
               {COUPON}
             </button>

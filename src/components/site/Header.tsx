@@ -33,19 +33,6 @@ export function Header() {
           : "border-transparent bg-champagne",
       )}
     >
-      {/* faixa de aviso no topo, como a do BK; some quando a página rola */}
-      <div
-        className={cn(
-          "overflow-hidden bg-gold text-center text-[13px] font-semibold text-espresso transition-[max-height] duration-300 md:text-sm",
-          scrolled ? "max-h-0" : "max-h-16",
-        )}
-      >
-        <a href="#cupom" className="container-page block py-2 hover:underline">
-          <span className="md:hidden">25% OFF no Anota Aí com o cupom <strong>CUPOMSITE25</strong></span>
-          <span className="hidden md:inline">Cupom do site: <strong className="tracking-wide">CUPOMSITE25</strong> dá 25% de desconto no Anota Aí, a partir de R$ 50.</span>
-        </a>
-      </div>
-
       <div
         className={cn(
           "container-page relative flex items-center gap-4 transition-all duration-300",
