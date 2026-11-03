@@ -70,9 +70,6 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: socialImage },
     ],
-    links: [
-      { rel: "preload", href: boardAsset, as: "image" },
-    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -85,7 +82,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-w-0 overflow-x-clip bg-champagne pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-0">
+    <div className="min-w-0 overflow-x-clip bg-champagne">
       <Header />
       <main>
         <Hero />

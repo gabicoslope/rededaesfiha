@@ -25,7 +25,7 @@ export function OrderSection() {
           >
             Peça já
           </a>
-          <ul className="mt-8 flex flex-wrap justify-center gap-2 text-xs font-medium text-brand-white md:justify-start md:text-sm">
+          <ul className="mt-6 flex flex-wrap justify-center gap-2 text-[13px] font-semibold text-brand-white md:mt-8 md:justify-start md:text-sm">
             {[
               { icon: ShoppingBag, text: "Pedido mínimo R$ 19,99" },
               { icon: CreditCard, text: "Pix, cartão e vale-refeição" },

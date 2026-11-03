@@ -80,7 +80,7 @@ export function AmbientSection() {
             <button
               type="button"
               onClick={() => setOpen(0)}
-              className="focus-gold mt-2 font-bold text-burgundy underline decoration-2 underline-offset-4 transition-colors hover:text-brand-red-deep"
+              className="focus-gold mt-1 inline-block py-2 font-bold text-burgundy underline decoration-2 underline-offset-4 transition-colors hover:text-brand-red-deep"
             >
               Ver as {total} fotos
             </button>

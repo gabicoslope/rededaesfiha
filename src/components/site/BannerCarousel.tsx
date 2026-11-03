@@ -10,14 +10,14 @@ import { BANNER_INTERVAL_MS, shouldAutoplay } from "./banner-autoplay";
 
 const icons = { pedido: ShoppingBag, cashback: Wallet, "dez-pedidos": Gift, cupom: Percent, instagram: Instagram, festas: PartyPopper };
 
-function SlideContent({ slide }: { slide: BannerSlide }) {
+function SlideContent({ slide, first }: { slide: BannerSlide; first: boolean }) {
   const Icon = icons[slide.id];
   const image = slide.mobileImage ?? slide.desktopImage;
   if (image) {
     return (
       <picture className="block h-full w-full">
         <source media="(min-width: 768px)" srcSet={slide.desktopImage ?? image} />
-        <img src={image} alt={slide.headline} className="h-full w-full object-cover" />
+        <img src={image} alt={slide.headline} width={1080} height={608} loading={first ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover" />
       </picture>
     );
   }
@@ -94,7 +94,7 @@ export function BannerCarousel() {
           {banners.map((slide, index) => (
             <div key={slide.id} className={cn("banner-slide relative h-full min-w-0 shrink-0 basis-full", `banner-${slide.theme}`)} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${total}`} aria-hidden={selected !== index}>
               <a href={slide.href} target="_blank" rel="noopener noreferrer" aria-label={`${slide.headline} — ${slide.cta}`} tabIndex={selected === index ? 0 : -1} className="focus-gold block h-full w-full">
-                <SlideContent slide={slide} />
+                <SlideContent slide={slide} first={index === 0} />
               </a>
               {slide.rules && (
                 <Dialog onOpenChange={setRulesOpen}>

@@ -51,55 +51,44 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Aviso de cookies"
-      className="fixed inset-x-0 bottom-0 z-[70] rounded-t-2xl border-t border-gold/40 bg-champagne/98 shadow-[var(--shadow-cookie)] backdrop-blur"
+      className="fixed inset-x-0 bottom-0 z-[70] border-t border-espresso/10 bg-champagne pb-[env(safe-area-inset-bottom)] shadow-[var(--shadow-cookie)]"
     >
       <div className="container-page px-4 py-3 md:py-4">
-        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-6">
-          <div className="flex items-start gap-2.5">
+        <div className="flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between md:gap-6">
+          <p className="flex items-start gap-2.5 text-[13px] leading-snug text-espresso/85 md:text-sm">
             <Cookie className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden />
-            <div>
-              <p className="text-sm font-bold text-espresso">
-                Nós usamos cookies
-              </p>
-              <p className="mt-0.5 text-xs leading-snug text-espresso/80">
-                Usamos cookies para melhorar sua experiência e medir o alcance das
-                nossas promoções. Saiba mais na nossa{" "}
-                <Link
-                  to="/privacidade"
-                  className="story-link font-bold text-burgundy"
-                >
-                  Política de Privacidade
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
+            <span>
+              Usamos cookies pra medir o alcance das promoções.{" "}
+              <Link to="/privacidade" className="font-bold text-burgundy underline underline-offset-2">
+                Política de privacidade
+              </Link>
+              {!configuring && (
+                <>
+                  {" · "}
+                  <button type="button" onClick={() => setConfiguring(true)} className="font-bold text-burgundy underline underline-offset-2">
+                    Preferências
+                  </button>
+                </>
+              )}
+            </span>
+          </p>
 
           {!configuring && (
-            <div className="flex shrink-0 flex-col gap-2 md:w-56">
+            <div className="grid shrink-0 grid-cols-2 gap-2 md:w-72">
+              <button
+                type="button"
+                onClick={() => close({ analytics: false, marketing: false })}
+                className="btn-base h-11 border border-espresso/25 bg-transparent px-3 text-espresso"
+              >
+                Recusar
+              </button>
               <button
                 type="button"
                 onClick={() => close({ analytics: true, marketing: true })}
-                className="btn-base h-10 w-full bg-burgundy text-brand-white hover:bg-brand-red-deep"
+                className="btn-base h-11 bg-burgundy px-3 text-brand-white"
               >
-                Aceitar tudo
+                Aceitar
               </button>
-              <div className="flex items-center justify-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => setConfiguring(true)}
-                  className="text-xs font-medium text-burgundy underline-offset-2 transition-opacity hover:opacity-80 hover:underline"
-                >
-                  Preferências
-                </button>
-                <button
-                  type="button"
-                  onClick={() => close({ analytics: false, marketing: false })}
-                  className="text-xs font-medium text-burgundy underline-offset-2 transition-opacity hover:opacity-80 hover:underline"
-                >
-                  Recusar
-                </button>
-              </div>
             </div>
           )}
         </div>

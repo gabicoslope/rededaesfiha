@@ -1,15 +1,15 @@
-import boardAsset from "@/assets/IMGP9352.jpg";
-import esfihaDoceAsset from "@/assets/DSC09351-2.webp";
-import pizzaSalgadaAsset from "@/assets/DSC09574-2.webp";
-import pizzaDoceAsset from "@/assets/DSC00137-2.webp";
-import pastelAsset from "@/assets/DSC09700.webp";
-import burgerAsset from "@/assets/DSC09488-2.webp";
-import sobremesaAsset from "@/assets/DSC00039-2.webp";
-import porcoesAsset from "@/assets/DSC09760.webp";
-import bebidasAsset from "@/assets/DSC09622.webp";
-import fogazzaAsset from "@/assets/DSC09712-2.webp";
-import beiruteAsset from "@/assets/DSC09552.webp";
-import combosAsset from "@/assets/DSC09477.webp";
+import boardAsset from "@/assets/cardapio/IMGP9352.webp";
+import esfihaDoceAsset from "@/assets/cardapio/DSC09351-2.webp";
+import pizzaSalgadaAsset from "@/assets/cardapio/DSC09574-2.webp";
+import pizzaDoceAsset from "@/assets/cardapio/DSC00137-2.webp";
+import pastelAsset from "@/assets/cardapio/DSC09700.webp";
+import burgerAsset from "@/assets/cardapio/DSC09488-2.webp";
+import sobremesaAsset from "@/assets/cardapio/DSC00039-2.webp";
+import porcoesAsset from "@/assets/cardapio/DSC09760.webp";
+import bebidasAsset from "@/assets/cardapio/DSC09622.webp";
+import fogazzaAsset from "@/assets/cardapio/DSC09712-2.webp";
+import beiruteAsset from "@/assets/cardapio/DSC09552.webp";
+import combosAsset from "@/assets/cardapio/DSC09477.webp";
 
 export const ORDER_URL = "https://pedido.anota.ai/loja/megaesfihacursino";
 export const INSTAGRAM_URL = "https://www.instagram.com/rededaesfihavilamoraes_ofc/";

@@ -36,12 +36,13 @@ export function Header() {
       {/* faixa de aviso no topo, como a do BK; some quando a página rola */}
       <div
         className={cn(
-          "overflow-hidden bg-gold text-center text-xs font-semibold text-espresso transition-[max-height] duration-300 md:text-sm",
+          "overflow-hidden bg-gold text-center text-[13px] font-semibold text-espresso transition-[max-height] duration-300 md:text-sm",
           scrolled ? "max-h-0" : "max-h-16",
         )}
       >
         <a href="#cupom" className="container-page block py-2 hover:underline">
-          Cupom do site: <strong className="tracking-wide">CUPOMSITE25</strong> dá 25% de desconto no Anota Aí, a partir de R$ 50.
+          <span className="md:hidden">25% OFF no Anota Aí com o cupom <strong>CUPOMSITE25</strong></span>
+          <span className="hidden md:inline">Cupom do site: <strong className="tracking-wide">CUPOMSITE25</strong> dá 25% de desconto no Anota Aí, a partir de R$ 50.</span>
         </a>
       </div>
 
@@ -105,7 +106,7 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-2 py-2.5 font-semibold transition-colors hover:bg-espresso/5"
+                  className="rounded-lg px-2 py-3 text-base font-semibold transition-colors hover:bg-espresso/5"
                 >
                   {link.label}
                 </a>
@@ -115,7 +116,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-2 py-2.5 font-semibold transition-colors hover:bg-espresso/5"
+                className="rounded-lg px-2 py-3 text-base font-semibold transition-colors hover:bg-espresso/5"
               >
                 Faça seu pedido
               </a>

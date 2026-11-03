@@ -17,14 +17,14 @@ const NAV = [
 const PAYMENT_METHODS = ["Pix", "Cartão", "Dinheiro", "VR", "Sodexo", "Alelo", "Ticket"];
 
 const title = "font-display text-xl font-bold text-brand-white";
-const link = "inline-flex items-center gap-2 text-brand-white/85 transition-colors hover:text-gold";
+const link = "inline-flex min-h-10 items-center gap-2 text-[15px] text-brand-white/90 transition-colors hover:text-gold md:min-h-0 md:text-sm";
 
 export function Footer() {
   return (
-    <footer className="relative bg-burgundy text-sm text-brand-white">
+    <footer className="relative bg-burgundy pb-[calc(4.5rem+env(safe-area-inset-bottom))] text-sm text-brand-white md:pb-0">
       {/* faixa de chamada pro pedido */}
       <div className="container-page">
-        <Reveal className="relative isolate -translate-y-1/2 overflow-hidden bg-espresso px-6 py-8 shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] md:flex md:items-center md:justify-between md:px-10 md:py-10">
+        <Reveal className="relative isolate -mx-5 overflow-hidden bg-espresso px-6 py-8 md:mx-0 md:-translate-y-1/2 shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] md:flex md:items-center md:justify-between md:px-10 md:py-10">
           {/* fachada de verdade no fundo da chamada final */}
           <img src={fachadaFundo} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_45%]" />
           <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(15_16_24/0.92)_30%,rgb(15_16_24/0.6))]" />
@@ -44,7 +44,7 @@ export function Footer() {
         </Reveal>
       </div>
 
-      <div className="container-page -mt-4 grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr_1.2fr] lg:gap-8">
+      <div className="container-page grid gap-8 pb-10 pt-10 sm:grid-cols-2 md:-mt-4 md:gap-10 md:pb-12 md:pt-0 lg:grid-cols-[1.3fr_1fr_1.2fr_1.2fr] lg:gap-8">
         <div>
           <img src={logoUrl} alt="Rede da Esfiha Vila Moraes" className="h-24 w-auto" width={420} height={399} loading="lazy" />
           <p className="mt-4 max-w-xs leading-relaxed text-brand-white/85">
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
         </div>
 
-        <nav aria-label="Rodapé">
+        <nav aria-label="Rodapé" className="hidden sm:block">
           <p className={title}>Navegue</p>
           <ul className="mt-4 space-y-2.5">
             {NAV.map((n) => (
@@ -100,11 +100,11 @@ export function Footer() {
                 (11) 5073-7481
               </a>
             </li>
-            <li className="flex gap-2 text-brand-white/85">
+            <li className="hidden gap-2 text-brand-white/85 md:flex">
               <MapPin className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden="true" />
               <span>{ADDRESS}</span>
             </li>
-            <li className="flex gap-2 text-brand-white/85">
+            <li className="hidden gap-2 text-brand-white/85 md:flex">
               <Clock className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden="true" />
               <span>
                 Todos os dias
@@ -131,8 +131,8 @@ export function Footer() {
         <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-brand-white/75 md:flex-row">
           <p>© 2026 Rede da Esfiha Vila Moraes</p>
           <div className="flex gap-5">
-            <Link to="/termos" className="transition-colors hover:text-gold">Termos de uso</Link>
-            <Link to="/privacidade" className="transition-colors hover:text-gold">Política de privacidade</Link>
+            <Link to="/termos" className="py-2 transition-colors hover:text-gold">Termos de uso</Link>
+            <Link to="/privacidade" className="py-2 transition-colors hover:text-gold">Política de privacidade</Link>
           </div>
         </div>
       </div>

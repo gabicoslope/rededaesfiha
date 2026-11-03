@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import heroMesa from "@/assets/hero-mesa.webp";
+import heroMesaMobile from "@/assets/hero-mesa-mobile.webp";
 import { ORDER_URL } from "./data";
 
 // Topo: foto da mesa vermelha com a comida nas bordas (arte enviada pela Gabi em 02/11,
@@ -14,17 +15,21 @@ export function Hero() {
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-[#8e1a0e]">
-      <motion.img
-        src={heroMesa}
-        alt="Mesa de madeira vermelha com esfihas, pizza, hambúrguer, pastéis, esfihas doces e refrigerante"
-        width={1672}
-        height={941}
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-        initial={reduce ? false : { scale: 1.08 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-      />
+      {/* no celular, versão vertical da mesma arte (comida nos quatro cantos) */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet={heroMesa} />
+        <motion.img
+          src={heroMesaMobile}
+          alt="Mesa de madeira vermelha com esfihas, pizza, hambúrguer, pastéis, esfihas doces e refrigerante"
+          width={1080}
+          height={1440}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
+          initial={reduce ? false : { scale: 1.08 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </picture>
 
       {/* curva que separa o topo do cardápio (bege) logo abaixo */}
       <svg
@@ -36,7 +41,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[34rem] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
+      <div className="container-page relative flex min-h-[min(36rem,calc(100svh-7rem))] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
         <motion.h1 className="heading-display !text-[3.6rem] text-brand-white md:!text-[7rem]" {...enter(0.2, 24)}>
           Rede da Esfiha
         </motion.h1>
