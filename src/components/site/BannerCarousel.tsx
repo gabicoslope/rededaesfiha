@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { banners, type BannerSlide } from "./banners";
+import { HeroSlide } from "./Hero";
 
 import { BANNER_INTERVAL_MS, shouldAutoplay } from "./banner-autoplay";
 
@@ -36,7 +37,10 @@ function SlideContent({ slide }: { slide: BannerSlide }) {
   );
 }
 
+// Carrossel do topo (estilo BK): o 1º slide é a apresentação da loja e os seguintes
+// são as artes do Daniel. Ocupa a largura toda logo abaixo do cabeçalho.
 export function BannerCarousel() {
+  const total = banners.length + 1;
   const [viewportRef, api] = useEmblaCarousel({ loop: true });
   const [selected, setSelected] = useState(0);
   const [rulesOpen, setRulesOpen] = useState(false);
@@ -75,9 +79,10 @@ export function BannerCarousel() {
 
   return (
     <section
-      aria-label="Promoções da Rede da Esfiha"
+      id="inicio"
+      aria-label="Rede da Esfiha e promoções"
       aria-roledescription="carrossel"
-      className="banner-section min-w-0"
+      className="banner-section relative min-w-0"
       onMouseEnter={() => { pause.current.hover = true; }}
       onMouseLeave={() => { pause.current.hover = false; }}
       onFocusCapture={() => { pause.current.focus = true; }}
@@ -89,8 +94,11 @@ export function BannerCarousel() {
       <div className="banner-carousel relative">
       <div ref={viewportRef} className="h-full overflow-hidden">
         <div className="flex h-full touch-pan-y">
-          {banners.map((slide, index) => (
-            <div key={slide.id} className={cn("banner-slide relative h-full min-w-0 shrink-0 basis-full", `banner-${slide.theme}`)} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${banners.length}`} aria-hidden={selected !== index}>
+          <div className="banner-slide relative h-full min-w-0 shrink-0 basis-full" role="group" aria-roledescription="slide" aria-label={`1 de ${total}`} aria-hidden={selected !== 0}>
+            <HeroSlide active={selected === 0} />
+          </div>
+          {banners.map((slide, i) => { const index = i + 1; return (
+            <div key={slide.id} className={cn("banner-slide relative h-full min-w-0 shrink-0 basis-full", `banner-${slide.theme}`)} role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${total}`} aria-hidden={selected !== index}>
               <a href={slide.href} target="_blank" rel="noopener noreferrer" aria-label={`${slide.headline} — ${slide.cta}`} tabIndex={selected === index ? 0 : -1} className="focus-gold block h-full w-full">
                 <SlideContent slide={slide} />
               </a>
@@ -105,14 +113,14 @@ export function BannerCarousel() {
                 </Dialog>
               )}
             </div>
-          ))}
+          ); })}
         </div>
       </div>
       <Button variant="ghost" size="icon" aria-label="Banner anterior" onClick={() => api?.scrollPrev()} className="banner-control absolute left-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex"><ArrowLeft /></Button>
       <Button variant="ghost" size="icon" aria-label="Próximo banner" onClick={() => api?.scrollNext()} className="banner-control absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex"><ArrowRight /></Button>
       </div>
-      <div className="banner-dots mx-auto mt-2 flex w-fit items-center rounded-full px-1">
-        {banners.map((slide, index) => <Button key={slide.id} variant="ghost" aria-label={`Mostrar banner ${index + 1}: ${slide.eyebrow}`} aria-current={selected === index ? "true" : undefined} onClick={() => api?.scrollTo(index)} className="banner-dot size-6 rounded-full p-0"><span className={cn("block size-1.5 rounded-full bg-brand-white", selected !== index && "opacity-40")} /></Button>)}
+      <div className="banner-dots absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center rounded-full px-1 md:bottom-4">
+        {[{ id: "inicio", eyebrow: "Início" }, ...banners].map((slide, index) => <Button key={slide.id} variant="ghost" aria-label={`Mostrar slide ${index + 1}: ${slide.eyebrow}`} aria-current={selected === index ? "true" : undefined} onClick={() => api?.scrollTo(index)} className="banner-dot size-6 rounded-full p-0"><span className={cn("block h-1.5 rounded-full bg-brand-white transition-all duration-300", selected === index ? "w-4" : "w-1.5 opacity-50")} /></Button>)}
       </div>
     </section>
   );

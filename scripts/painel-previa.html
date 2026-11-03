@@ -55,7 +55,7 @@
         TOKENS_NOVOS +
         "#pedido{background:" + PRETO + "!important}" +
         "#cardapio{background:" + PRETO + "!important}#cardapio h2{color:" + AMARELO + "!important}#cardapio p{color:#fff!important}" +
-        "#cupom{background:" + AMARELO + "!important;--cupom-bg:" + AMARELO + "}#cupom h2{color:" + PRETO + "!important}#cupom > div > div.mt-10 a.btn-base{background:" + PRETO + "!important;color:#fff!important}"
+        "#cupom{background:" + AMARELO + "!important;--cupom-bg:" + AMARELO + "}"
     }
   };
 
@@ -110,8 +110,8 @@
     var el = document.createElement("div");
     el.id = "pv";
     el.innerHTML =
-      '<button type="button" id="pv-toggle" aria-expanded="true"><i></i>Testar estilos</button>' +
-      '<div id="pv-card">' +
+      '<button type="button" id="pv-toggle" aria-expanded="false"><i></i>Testar estilos</button>' +
+      '<div id="pv-card" hidden>' +
       grupo("Fonte dos títulos", "fonte", FONTES) +
       grupo("Fonte do texto", "texto", TEXTOS) +
       grupo("Paleta", "paleta", PALETAS, true) +

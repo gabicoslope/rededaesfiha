@@ -12,7 +12,7 @@ export function LocationSection() {
       <div className="container-page grid min-w-0 items-center gap-10 md:grid-cols-[1fr_1.15fr] md:gap-14">
         <div className="min-w-0">
           <Reveal>
-            <h2 className="heading-display text-espresso md:text-[4.5rem]">
+            <h2 className="heading-display text-espresso">
             <Palavras>Onde estamos</Palavras>
           </h2>
           </Reveal>

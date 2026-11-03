@@ -34,19 +34,32 @@ export function Header() {
           : "border-transparent bg-champagne",
       )}
     >
+      {/* faixa de aviso no topo, como a do BK; some quando a página rola */}
       <div
         className={cn(
-          "container-page flex items-center gap-4 py-2 transition-all duration-300",
-          scrolled ? "h-16 md:h-18" : "h-20 md:h-22",
+          "overflow-hidden bg-gold text-center text-xs font-semibold text-espresso transition-[max-height] duration-300 md:text-sm",
+          scrolled ? "max-h-0" : "max-h-16",
         )}
       >
-        <a href="#inicio" className="logo-link flex shrink-0 items-center gap-2">
+        <a href="#cupom" className="container-page block py-2 hover:underline">
+          Cupom do site: <strong className="tracking-wide">CUPOMSITE25</strong> dá 25% de desconto no Anota Aí, a partir de R$ 50.
+        </a>
+      </div>
+
+      <div
+        className={cn(
+          "container-page relative flex items-center gap-4 transition-all duration-300",
+          scrolled ? "h-16 md:h-18" : "h-16 md:h-20",
+        )}
+      >
+        {/* logo "pendurado", passando da altura do cabeçalho (estilo BK) */}
+        <a href="#inicio" className="logo-link relative z-10 flex w-20 shrink-0 self-start md:w-28">
           <img
             src={logoUrl}
             alt="Rede da Esfiha Vila Moraes"
             className={cn(
-              "logo-anima w-auto transition-[height] duration-300",
-              scrolled ? "h-12 md:h-14" : "h-14 md:h-16",
+              "logo-anima absolute left-0 w-auto drop-shadow-[0_8px_14px_rgb(0_0_0/0.25)] transition-all duration-300",
+              scrolled ? "top-2 h-12 md:h-14" : "top-1 h-[4.75rem] md:h-[6.25rem]",
             )}
             width={760}
             height={722}
@@ -54,21 +67,21 @@ export function Header() {
           <span className="sr-only">Rede da Esfiha Vila Moraes</span>
         </a>
 
-        <nav className="ml-auto hidden items-center gap-5 text-xs text-espresso lg:flex xl:gap-7 xl:text-sm">
+        <nav className="mx-auto hidden items-center gap-6 font-display text-lg font-bold text-espresso lg:flex xl:gap-9 xl:text-xl">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="story-link">
               {link.label}
             </a>
           ))}
-          <a
-            href={ORDER_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-base btn-sm bg-burgundy text-brand-white hover:bg-brand-red-deep"
-          >
-            Faça seu pedido
-          </a>
         </nav>
+        <a
+          href={ORDER_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-base btn-sm hidden bg-burgundy text-brand-white hover:bg-brand-red-deep lg:inline-flex"
+        >
+          Faça seu pedido
+        </a>
 
         <button
           type="button"
