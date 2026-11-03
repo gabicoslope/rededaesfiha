@@ -139,15 +139,15 @@ export function AmbientSection() {
                     initial={reduce ? false : { opacity: 0, y: 16, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.4, delay: reduce ? 0 : Math.min(i, 5) * 0.05 }}
-                    className="min-w-0 shrink-0 basis-[68%] sm:basis-[42%] md:basis-[calc((100%-4.5rem)/4)]"
+                    className="min-w-0 shrink-0 basis-[84%] sm:basis-[48%] md:basis-[calc((100%-3rem)/3)]"
                   >
                     <button
                       type="button"
                       onClick={() => setOpen(i)}
                       aria-label={`Ampliar foto: ${p.caption}`}
-                      className="focus-gold group block w-full overflow-hidden rounded-lg bg-espresso text-left shadow-[0_20px_40px_-22px_rgb(0_0_0/0.6)] transition-transform duration-300 hover:-translate-y-1.5"
+                      className="focus-gold group block w-full overflow-hidden bg-espresso text-left shadow-[0_20px_40px_-22px_rgb(0_0_0/0.6)] transition-transform duration-300 hover:-translate-y-1.5"
                     >
-                      <span className="relative block aspect-[3/4] overflow-hidden">
+                      <span className="relative block aspect-[4/5] overflow-hidden">
                         <img
                           src={p.card}
                           alt={p.alt}
@@ -155,7 +155,7 @@ export function AmbientSection() {
                           decoding="async"
                           draggable={false}
                           style={{ objectPosition: p.position ?? "50% 50%" }}
-                          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                         />
                         <span className="absolute left-2 top-2 rounded-full bg-espresso/75 px-2.5 py-1 text-[11px] font-medium text-brand-white">
                           {AREA_LABEL[p.area]}
@@ -191,10 +191,10 @@ export function AmbientSection() {
       </div>
 
       <Dialog open={current !== null} onOpenChange={(v) => !v && setOpen(null)}>
-        <DialogContent aria-describedby={undefined} className="max-w-5xl gap-0 border-0 bg-transparent p-0 text-brand-white shadow-none sm:rounded-2xl [&>button:last-child]:right-3 [&>button:last-child]:top-3 [&>button:last-child]:rounded-full [&>button:last-child]:bg-black/60 [&>button:last-child]:p-2 [&>button:last-child]:text-brand-white [&>button:last-child]:opacity-100">
+        <DialogContent aria-describedby={undefined} className="max-w-5xl gap-0 border-0 bg-transparent p-0 text-brand-white shadow-none sm:rounded-none [&>button:last-child]:right-3 [&>button:last-child]:top-3 [&>button:last-child]:rounded-full [&>button:last-child]:bg-black/60 [&>button:last-child]:p-2 [&>button:last-child]:text-brand-white [&>button:last-child]:opacity-100">
           <DialogTitle className="sr-only">{current ? current.caption : "Foto"}</DialogTitle>
           {current && (
-            <div className="relative overflow-hidden rounded-2xl bg-black">
+            <div className="relative overflow-hidden bg-black">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.img
                   key={current.full}

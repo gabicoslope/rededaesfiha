@@ -1,5 +1,5 @@
 import { ArrowRight, Bike, CreditCard, ShoppingBag } from "lucide-react";
-import anotaAiPhone from "@/assets/anota-ai-celular.webp";
+import celularMaos from "@/assets/celular-anota-ai-maos.webp";
 import { ORDER_URL } from "./data";
 import { Reveal } from "./Reveal";
 
@@ -7,9 +7,9 @@ import { Reveal } from "./Reveal";
 // A tela é um print da loja (pedido.anota.ai) tirado em 02/11.
 export function OrderSection() {
   return (
-    <section id="pedido" className="overflow-hidden bg-burgundy section-y">
-      <div className="container-page grid items-center gap-12 md:grid-cols-[1.1fr_1fr]">
-        <Reveal className="text-center md:text-left">
+    <section id="pedido" className="overflow-hidden bg-burgundy pt-14 md:pt-16">
+      <div className="container-page grid items-end gap-10 md:grid-cols-[1.1fr_1fr] md:gap-12">
+        <Reveal className="self-center text-center md:pb-16 md:text-left">
           <h2 className="heading-display text-brand-white">Faça seu pedido agora mesmo</h2>
           <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-brand-white md:mx-0 md:text-lg">
             O nosso delivery é tão fácil de pedir quanto é gostoso de saborear.
@@ -40,27 +40,22 @@ export function OrderSection() {
           </ul>
         </Reveal>
 
-        <Reveal delay={0.12} className="flex justify-center md:justify-end">
+        <Reveal delay={0.12} className="-mb-px flex justify-center md:justify-end">
           <a
             href={ORDER_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Abrir a loja da Rede da Esfiha Vila Moraes no Anota Aí"
-            className="phone-float group relative block w-[15.5rem] md:w-[17.5rem]"
+            className="group relative block w-[19rem] md:w-[26rem]"
           >
-            <div className="rounded-[2.6rem] bg-espresso p-2.5 transition-transform duration-500 group-hover:scale-[1.03] shadow-[0_40px_70px_-25px_rgb(0_0_0/0.65)] ring-1 ring-white/10">
-              <div className="relative overflow-hidden rounded-[2.1rem] bg-white">
-                <span className="absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-espresso" />
-                <img
-                  src={anotaAiPhone}
-                  alt="Loja da Rede da Esfiha Vila Moraes aberta no Anota Aí, com esfihas e pizzas em destaque"
-                  width={780}
-                  height={1688}
-                  loading="lazy"
-                  className="block aspect-[390/780] w-full object-cover object-top"
-                />
-              </div>
-            </div>
+            <img
+              src={celularMaos}
+              alt="Mãos segurando um celular com a loja da Rede da Esfiha Vila Moraes aberta no Anota Aí"
+              width={900}
+              height={1125}
+              loading="lazy"
+              className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+            />
           </a>
         </Reveal>
       </div>
