@@ -56,7 +56,7 @@ export function LocationSection() {
         {/* foto real da fachada no lugar do mapa embutido (o Google Maps embutido é
             bloqueado na prévia e o endereço exato não existe no OpenStreetMap). Os botões
             abrem a rota no Google Maps ou no Waze. */}
-        <Reveal delay={0.12} className="relative min-w-0 overflow-hidden rounded-lg shadow-[0_20px_40px_-24px_rgb(0_0_0/0.5)]">
+        <Reveal delay={0.12} className="relative min-w-0 overflow-hidden shadow-[0_20px_40px_-24px_rgb(0_0_0/0.5)]">
           <img
             src={fachadaDia}
             alt="Fachada da Rede da Esfiha na Avenida do Cursino, prédio vermelho de dois andares"
