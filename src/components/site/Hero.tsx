@@ -21,8 +21,8 @@ export function Hero() {
         <motion.img
           src={heroMesaMobile}
           alt="Mesa de madeira vermelha com esfihas, pizza, hambúrguer, pastéis, esfihas doces e refrigerante"
-          width={1080}
-          height={1440}
+          width={941}
+          height={1672}
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
           initial={reduce ? false : { scale: 1.08 }}
@@ -41,7 +41,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[min(36rem,calc(100svh-7rem))] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
+      <div className="container-page relative flex min-h-[min(46rem,calc(100svh-6rem))] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
         <motion.h1 className="heading-display !text-[3.6rem] text-brand-white md:!text-[7rem]" {...enter(0.2, 24)}>
           Rede da Esfiha
         </motion.h1>
