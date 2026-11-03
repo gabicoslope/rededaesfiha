@@ -20,7 +20,7 @@
 <script>
 (function () {
   // carrega as fontes de teste pelo <head> (no fim do <body> o claude.ai pode ignorar)
-  var FONTES_URL = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@400;500;700;800&family=Lilita+One&family=Cherry+Bomb+One&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap";
+  var FONTES_URL = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:opsz,wght@9..144,600;700;800&family=Caprasimo&family=Anton&family=Archivo+Black&family=DM+Sans:wght@400;500;700&family=Figtree:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap";
   if (!document.getElementById("pv-fontes")) {
     var lk = document.createElement("link");
     lk.id = "pv-fontes"; lk.rel = "stylesheet"; lk.href = FONTES_URL;
@@ -59,20 +59,23 @@
     }
   };
 
+  // fontes de título: todas gratuitas (Google Fonts) e liberadas pra site.
+  // Fraunces lembra a Recoleta (paga) e Caprasimo lembra a Cooper Black (paga).
   var FONTES = {
-    sansita: { nome: "Sansita", fam: '"Sansita"', peso: 400 },
-    poppins: { nome: "Poppins", fam: '"Poppins"', peso: 700, ls: "-0.02em" },
-    fredoka: { nome: "Fredoka", fam: '"Fredoka"', peso: 600 },
-    baloo: { nome: "Baloo 2", fam: '"Baloo 2"', peso: 800 },
-    lilita: { nome: "Lilita One", fam: '"Lilita One"', peso: 400 },
-    cherry: { nome: "Cherry Bomb", fam: '"Cherry Bomb One"', peso: 400 }
+    sansita: { nome: "Sansita (atual)", fam: '"Sansita"', peso: 400 },
+    bricolage: { nome: "Bricolage", fam: '"Bricolage Grotesque"', peso: 800, ls: "-0.02em" },
+    fraunces: { nome: "Fraunces", fam: '"Fraunces"', peso: 700, ls: "-0.01em" },
+    caprasimo: { nome: "Caprasimo", fam: '"Caprasimo"', peso: 400 },
+    anton: { nome: "Anton", fam: '"Anton"', peso: 400, ls: "0.01em" },
+    archivo: { nome: "Archivo Black", fam: '"Archivo Black"', peso: 400, ls: "-0.02em" },
+    poppins: { nome: "Poppins", fam: '"Poppins"', peso: 700, ls: "-0.02em" }
   };
   var TEXTOS = {
-    nunito: { nome: "Nunito", fam: '"Nunito"' },
-    poppins: { nome: "Poppins", fam: '"Poppins"' },
-    quicksand: { nome: "Quicksand", fam: '"Quicksand"', peso: 500 },
-    fredoka: { nome: "Fredoka", fam: '"Fredoka"' },
-    baloo: { nome: "Baloo 2", fam: '"Baloo 2"', peso: 500 }
+    nunito: { nome: "Nunito (atual)", fam: '"Nunito"' },
+    dmsans: { nome: "DM Sans", fam: '"DM Sans"' },
+    figtree: { nome: "Figtree", fam: '"Figtree"' },
+    manrope: { nome: "Manrope", fam: '"Manrope"', peso: 500 },
+    poppins: { nome: "Poppins", fam: '"Poppins"' }
   };
 
   var estado = { paleta: "atual", fonte: "sansita", texto: "nunito" };
