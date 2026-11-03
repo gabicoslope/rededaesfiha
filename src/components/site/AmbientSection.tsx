@@ -67,20 +67,20 @@ export function AmbientSection() {
   const current = open === null ? null : PHOTOS[open];
 
   return (
-    <section id="nosso-ambiente" className="bg-champagne section-y">
+    <section id="nosso-ambiente" className="bg-espresso section-y">
       <div className="container-page min-w-0">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
-          <h2 className="heading-display text-espresso">
+          <h2 className="heading-display text-brand-white">
             <Palavras>Nosso ambiente</Palavras>
           </h2>
           <div className="md:max-w-sm md:pb-2 md:text-right">
-            <p className="text-base leading-snug text-espresso/80 md:text-lg">
+            <p className="text-base leading-snug text-brand-white/80 md:text-lg">
               Dois andares, salão amplo e espaço kids, aqui na Vila Moraes.
             </p>
             <button
               type="button"
               onClick={() => setOpen(0)}
-              className="focus-gold mt-1 inline-block py-2 font-bold text-burgundy underline decoration-2 underline-offset-4 transition-colors hover:text-brand-red-deep"
+              className="focus-gold mt-1 inline-block py-2 font-bold text-gold underline decoration-2 underline-offset-4 transition-colors hover:text-gold-contrast"
             >
               Ver as {total} fotos
             </button>
@@ -104,7 +104,7 @@ export function AmbientSection() {
                 {/* cortina da cor do fundo que sobe e revela a foto */}
                 <motion.span
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 z-10 origin-top bg-champagne"
+                  className="pointer-events-none absolute inset-0 z-10 origin-top bg-espresso"
                   variants={{ coberta: { scaleY: 1 }, revelada: { scaleY: 0 } }}
                   transition={{ duration: 0.9, delay: reduce ? 0 : i * 0.08, ease: [0.65, 0, 0.35, 1] }}
                 />

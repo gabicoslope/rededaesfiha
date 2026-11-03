@@ -53,7 +53,7 @@ export function ReviewsSection() {
   return (
     <section
       id="avaliacoes"
-      className="relative overflow-hidden bg-champagne section-y"
+      className="relative overflow-hidden bg-espresso section-y"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
       onFocusCapture={() => (paused.current = true)}
@@ -61,7 +61,7 @@ export function ReviewsSection() {
     >
       <div className="container-page">
         <Reveal>
-          <h2 className="heading-display mx-auto max-w-xl text-center text-espresso">
+          <h2 className="heading-display mx-auto max-w-xl text-center text-brand-white">
             <Palavras>Veja o que dizem sobre a gente</Palavras>
           </h2>
         </Reveal>
@@ -129,7 +129,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p - 1 + pageCount) % pageCount)}
             aria-label="Avaliações anteriores"
-            className="size-10 rounded-full border border-espresso/20 bg-brand-white text-espresso transition-[scale] hover:scale-110 hover:bg-burgundy hover:text-brand-white"
+            className="size-10 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
           >
             <ChevronLeft />
           </Button>
@@ -145,7 +145,7 @@ export function ReviewsSection() {
                 aria-current={page === i ? "page" : undefined}
                 className="size-8 rounded-full hover:bg-transparent"
               >
-                <span className={`block h-2.5 rounded-full transition-all duration-300 ${page === i ? "w-6 bg-burgundy" : "w-2.5 bg-espresso/25"}`} />
+                <span className={`block h-2.5 rounded-full transition-all duration-300 ${page === i ? "w-6 bg-gold" : "w-2.5 bg-brand-white/35"}`} />
               </Button>
             ))}
           </div>
@@ -155,7 +155,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p + 1) % pageCount)}
             aria-label="Próximas avaliações"
-            className="size-10 rounded-full border border-espresso/20 bg-brand-white text-espresso transition-[scale] hover:scale-110 hover:bg-burgundy hover:text-brand-white"
+            className="size-10 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
           >
             <ChevronRight />
           </Button>
