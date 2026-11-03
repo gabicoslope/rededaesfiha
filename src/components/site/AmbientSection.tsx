@@ -88,7 +88,7 @@ export function AmbientSection() {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-1.5 md:mt-10 md:grid-cols-4 md:grid-rows-[17rem_17rem] md:gap-2 lg:grid-rows-[19rem_19rem]">
+        <div className="mt-8 grid grid-cols-2 gap-1.5 md:mt-10 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:grid-rows-[17rem_17rem] md:gap-2 lg:grid-rows-[19rem_19rem]">
           {TILES.map((t, i) => {
             const p = PHOTOS[t.photo];
             return (
