@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { SendHorizontal, X } from "lucide-react";
-import logoUrl from "@/assets/logo-rede-da-esfiha.png";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 import { EVENTS_WHATSAPP_URL, WHATSAPP_URL } from "./data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 

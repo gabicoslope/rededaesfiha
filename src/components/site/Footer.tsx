@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Clock, Instagram, MapPin, Phone } from "lucide-react";
-import logoUrl from "@/assets/logo-rede-da-esfiha.png";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 import { ADDRESS, INSTAGRAM_URL, WHATSAPP_URL } from "./data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 

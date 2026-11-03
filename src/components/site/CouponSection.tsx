@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Copy, Check, MapPin, ShoppingBag, Store } from "lucide-react";
 import esfihas from "@/assets/hero/esfihas.webp";
-import logoUrl from "@/assets/logo-rede-da-esfiha.png";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 import { COUPON, ORDER_URL } from "./data";
 
 // Cupom em faixa de ponta a ponta (referência de voucher enviada pela Gabi em 02/11):

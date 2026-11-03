@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada | Rede da Esfiha Vila Moraes</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Sansita:wght@700&display=swap">
+  <style>
+    :root { --vermelho: #e4191b; --vermelho-escuro: #a3110f; --amarelo: #f5b400; --bege: #f2e6d4; --preto: #12121a; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; min-height: 100svh;
+      display: grid; place-items: center; padding: 32px 16px;
+      background: var(--vermelho); color: #fff;
+      font-family: Nunito, system-ui, sans-serif; text-align: center;
+    }
+    main { max-width: 34rem; }
+    .genio { width: 11rem; height: auto; filter: drop-shadow(0 18px 24px rgb(0 0 0 / .35)); animation: flutua 3.2s ease-in-out infinite; }
+    .numero { margin: 8px 0 0; font-family: Sansita, Georgia, serif; font-weight: 700; font-size: clamp(5rem, 22vw, 9rem); line-height: .9; color: var(--amarelo); }
+    h1 { margin: 12px 0 0; font-family: Sansita, Georgia, serif; font-size: clamp(1.9rem, 7vw, 2.8rem); line-height: 1.05; }
+    p { margin: 14px auto 0; max-width: 26rem; font-size: 1.05rem; line-height: 1.5; color: rgb(255 255 255 / .9); }
+    .botoes { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    a.botao { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; border-radius: 8px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background-color .2s; }
+    .principal { background: var(--amarelo); color: var(--preto); }
+    .principal:hover { background: #e0a400; }
+    .secundario { background: rgb(255 255 255 / .14); color: #fff; }
+    .secundario:hover { background: rgb(255 255 255 / .24); }
+    a:focus-visible { outline: 3px solid var(--amarelo); outline-offset: 3px; }
+    @keyframes flutua { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(2deg); } }
+    @media (prefers-reduced-motion: reduce) { .genio { animation: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="genio" src="/logo-404.png" alt="Rede da Esfiha Vila Moraes" width="420" height="399">
+    <p class="numero" aria-hidden="true">404</p>
+    <h1>Essa página sumiu como mágica</h1>
+    <p>Nem o gênio conseguiu achar o que você procurou. Mas o cardápio continua no mesmo lugar, e quentinho.</p>
+    <div class="botoes">
+      <a class="botao principal" href="/">Voltar para o início</a>
+      <a class="botao secundario" href="https://pedido.anota.ai/loja/megaesfihacursino" target="_blank" rel="noopener noreferrer">Fazer pedido</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
-import logoUrl from "@/assets/logo-rede-da-esfiha.png";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 import { ORDER_URL } from "./data";
 import { cn } from "@/lib/utils";
 
@@ -47,7 +47,6 @@ export function Header() {
             width={760}
             height={722}
           />
-          <span className="sr-only">Rede da Esfiha Vila Moraes</span>
         </a>
 
         <nav className="mx-auto hidden items-center gap-6 font-display text-lg font-bold text-espresso lg:flex xl:gap-9 xl:text-xl">

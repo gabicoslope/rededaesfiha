@@ -59,13 +59,13 @@ export function CookieBanner() {
             <Cookie className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden />
             <span>
               Usamos cookies pra medir o alcance das promoções.{" "}
-              <Link to="/privacidade" className="font-bold text-burgundy underline underline-offset-2">
+              <Link to="/privacidade" className="font-bold text-brand-red-deep underline underline-offset-2">
                 Política de privacidade
               </Link>
               {!configuring && (
                 <>
                   {" · "}
-                  <button type="button" onClick={() => setConfiguring(true)} className="font-bold text-burgundy underline underline-offset-2">
+                  <button type="button" onClick={() => setConfiguring(true)} className="font-bold text-brand-red-deep underline underline-offset-2">
                     Preferências
                   </button>
                 </>

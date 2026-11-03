@@ -15,6 +15,8 @@ import {
   ReviewsSection,
 } from "@/components/site/Sections";
 import boardAsset from "@/assets/IMGP9352.jpg";
+import heroMesa from "@/assets/hero-mesa.webp";
+import heroMesaMobile from "@/assets/hero-mesa-mobile.webp";
 import {
   ADDRESS,
   INSTAGRAM_URL,
@@ -25,7 +27,7 @@ import {
 const title = "Rede da Esfiha Vila Moraes | peça online";
 const description =
   "Esfihas, pizzas, hambúrguers e muito mais. Peça agora pelo delivery da Rede da Esfiha Vila Moraes e receba quentinho em casa.";
-const socialImage = "https://site.rededaesfiha.com.br/og-logo.png";
+const socialImage = "https://site.rededaesfiha.com.br/og-image.jpg";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -62,15 +64,28 @@ const structuredData = {
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    // a foto do topo começa a baixar junto com a página (é o maior elemento da tela)
+    links: [
+      { rel: "preload", as: "image", href: heroMesaMobile, media: "(max-width: 767px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroMesa, media: "(min-width: 768px)", fetchPriority: "high" },
+    ],
     meta: [
       { title },
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:image", content: socialImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Rede da Esfiha Vila Moraes: esfihas, pizzas e lanches no delivery e no salão" },
+      { property: "og:url", content: "https://site.rededaesfiha.com.br/" },
+      { property: "og:site_name", content: "Rede da Esfiha Vila Moraes" },
+      { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: socialImage },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     scripts: [
       {

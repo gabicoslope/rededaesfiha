@@ -8,7 +8,7 @@ import { Palavras } from "./Palavras";
 
 function Stars() {
   return (
-    <div className="flex gap-0.5 text-gold" aria-label="5 estrelas">
+    <div className="flex gap-0.5 text-gold" role="img" aria-label="5 estrelas">
       {[0, 1, 2, 3, 4].map((i) => (
         <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="size-4">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />

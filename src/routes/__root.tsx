@@ -13,23 +13,28 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Tracking } from "../components/site/Tracking";
 import { CookieBanner } from "../components/site/CookieBanner";
+import { ORDER_URL } from "../components/site/data";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 
+// Página "não encontrada" quando a navegação acontece dentro do site.
+// No servidor (cPanel), endereços que não existem caem no public/404.html, com o mesmo visual.
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="grid min-h-screen place-items-center bg-burgundy px-4 py-10 text-center text-brand-white">
+      <div className="max-w-lg">
+        <img src={logoUrl} alt="Rede da Esfiha Vila Moraes" width={420} height={399} className="genio-flutua mx-auto w-44" />
+        <p aria-hidden="true" className="mt-2 font-display text-[clamp(5rem,22vw,9rem)] font-bold leading-[0.9] text-gold">404</p>
+        <h1 className="mt-3 font-display text-4xl font-bold leading-tight md:text-5xl">Essa página sumiu como mágica</h1>
+        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-brand-white/90">
+          Nem o gênio conseguiu achar o que você procurou. Mas o cardápio continua no mesmo lugar, e quentinho.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <Link to="/" className="btn-base bg-gold text-espresso hover:bg-gold-contrast">
+            Voltar para o início
           </Link>
+          <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-base bg-brand-white/15 text-brand-white hover:bg-brand-white/25">
+            Fazer pedido
+          </a>
         </div>
       </div>
     </div>
@@ -94,12 +99,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Sansita:wght@400;700&display=swap",
-      },
     ],
   }),
 

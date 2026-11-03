@@ -15,8 +15,8 @@ export function Palavras({ children, delay = 0, stagger = 0.08 }: { children: st
       whileInView="show"
       viewport={{ once: false, amount: 0.6 }}
       transition={{ staggerChildren: stagger, delayChildren: delay }}
-      aria-label={children}
     >
+      <span className="sr-only">{children}</span>
       {words.map((w, i) => (
         <span key={i}>
           <span aria-hidden="true" className="inline-block overflow-hidden pb-[0.12em] align-bottom">

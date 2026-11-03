@@ -1,4 +1,4 @@
-import logoUrl from "@/assets/logo-rede-da-esfiha.png";
+import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 
 // Tela de abertura: o logo sai de uma fumacinha dourada (como o gênio saindo da
 // lâmpada) e a tela vermelha sobe, revelando o site. É só CSS, então some sozinha

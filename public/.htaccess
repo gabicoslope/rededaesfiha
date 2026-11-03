@@ -1,4 +1,4 @@
-# Static hosting (Apache/cPanel) — SPA fallback for TanStack Router.
+# Static hosting (Apache/cPanel).
 # This file lives in public/ and is copied to the root of the build output.
 # Upload it to the same folder as index.html on your hosting.
 
@@ -19,8 +19,8 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Everything else falls back to the SPA entry
-  RewriteRule ^ index.html [L]
+  # O site é todo pré-renderizado (/, /termos, /privacidade). Endereço que não
+  # existe cai no 404.html, com o código 404 certo pro Google.
 </IfModule>
 
 # Cache hashed build assets aggressively (Vite fingerprints them)
@@ -43,3 +43,11 @@ Options -Indexes
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
   Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
 </IfModule>
+
+# Compressão (deixa HTML, CSS e JS bem menores no 4G)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Página de erro do próprio site
+ErrorDocument 404 /404.html
