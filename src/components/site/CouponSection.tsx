@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { ArrowRight, Copy, Check } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import pizza from "@/assets/hero/pizza.webp";
 import { COUPON, ORDER_URL } from "./data";
 import { Palavras } from "./Palavras";
@@ -97,7 +97,6 @@ export function CouponSection() {
                   className="btn-base mt-4 h-14 w-full max-w-xl bg-brand-white text-burgundy hover:bg-champagne"
                 >
                   Usar cupom e pedir agora
-                  <ArrowRight className="btn-arrow size-4" aria-hidden="true" />
                 </a>
               </div>
             </div>

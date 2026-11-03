@@ -1,4 +1,4 @@
-import { ArrowRight, CreditCard, ShoppingBag } from "lucide-react";
+import { CreditCard, ShoppingBag } from "lucide-react";
 import celularMaos from "@/assets/celular-anota-ai-maos.webp";
 import { ORDER_URL } from "./data";
 import { Reveal } from "./Reveal";
@@ -14,7 +14,7 @@ export function OrderSection() {
           <h2 className="heading-display text-brand-white">
             <Palavras>Faça seu pedido agora mesmo</Palavras>
           </h2>
-          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-brand-white md:mx-0 md:text-lg">
+          <p className="mx-auto mt-3 max-w-md text-base leading-snug text-brand-white md:mx-0 md:text-lg">
             O nosso delivery é tão fácil de pedir quanto é gostoso de saborear.
           </p>
           <a
@@ -24,7 +24,6 @@ export function OrderSection() {
             className="btn-base mt-8 bg-gold px-10 text-espresso hover:bg-gold-contrast"
           >
             Peça já
-            <ArrowRight className="btn-arrow size-4" aria-hidden="true" />
           </a>
           <ul className="mt-8 flex flex-wrap justify-center gap-2 text-xs font-medium text-brand-white md:justify-start md:text-sm">
             {[

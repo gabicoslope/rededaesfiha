@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { ArrowRight, ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GOOGLE_REVIEWS_URL, reviews } from "./data";
 import { Reveal } from "./Reveal";
@@ -173,7 +173,6 @@ export function ReviewsSection() {
             className="btn-base bg-gold text-espresso hover:bg-gold-contrast"
           >
             Ver avaliações no Google
-            <ArrowRight className="btn-arrow size-4" aria-hidden="true" />
           </a>
         </div>
       </div>

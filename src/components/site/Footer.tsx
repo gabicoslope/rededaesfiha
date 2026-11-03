@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
 import logoUrl from "@/assets/logo-rede-da-esfiha.png";
 import { ADDRESS, INSTAGRAM_URL, ORDER_URL, WHATSAPP_URL } from "./data";
 import { Reveal } from "./Reveal";
@@ -35,7 +35,6 @@ export function Footer() {
           <div className="mt-5 flex flex-wrap justify-center gap-3 md:mt-0">
             <a href={ORDER_URL} target="_blank" rel="noopener noreferrer" className="btn-base bg-gold text-espresso hover:bg-gold-contrast">
               Fazer pedido
-              <ArrowRight className="btn-arrow size-4" aria-hidden="true" />
             </a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-base border border-brand-white/40 bg-transparent text-brand-white shadow-none hover:bg-brand-white hover:text-espresso">
               <MessageCircle className="size-4" aria-hidden="true" />

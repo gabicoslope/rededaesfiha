@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight } from "lucide-react";
 import heroMesa from "@/assets/hero-mesa.webp";
 import { ORDER_URL } from "./data";
 
@@ -55,7 +54,6 @@ export function Hero() {
             className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast"
           >
             Peça já
-            <ArrowRight className="btn-arrow size-4" aria-hidden="true" />
           </a>
         </motion.div>
       </div>
