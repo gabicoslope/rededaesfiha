@@ -26,14 +26,14 @@ export function Hero() {
         transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
       />
 
-      {/* curva que separa o topo da seção vermelha de baixo */}
+      {/* curva que separa o topo do cardápio (bege) logo abaixo */}
       <svg
         aria-hidden="true"
         viewBox="0 0 1440 60"
         preserveAspectRatio="none"
         className="absolute inset-x-0 bottom-[-1px] z-10 h-8 w-full md:h-14"
       >
-        <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-burgundy)" />
+        <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
       <div className="container-page relative flex min-h-[34rem] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">

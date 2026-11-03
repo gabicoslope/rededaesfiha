@@ -52,15 +52,11 @@ export function Header() {
           scrolled ? "h-16 md:h-18" : "h-16 md:h-20",
         )}
       >
-        {/* logo "pendurado", passando da altura do cabeçalho (estilo BK) */}
-        <a href="#inicio" className="logo-link relative z-10 flex w-20 shrink-0 self-start md:w-28">
+        <a href="#inicio" className="logo-link flex shrink-0 items-center">
           <img
             src={logoUrl}
             alt="Rede da Esfiha Vila Moraes"
-            className={cn(
-              "logo-anima absolute left-0 w-auto drop-shadow-[0_8px_14px_rgb(0_0_0/0.25)] transition-all duration-300",
-              scrolled ? "top-2 h-12 md:h-14" : "top-1 h-[4.75rem] md:h-[6.25rem]",
-            )}
+            className={cn("logo-anima w-auto transition-[height] duration-300", scrolled ? "h-11 md:h-12" : "h-12 md:h-14")}
             width={760}
             height={722}
           />

@@ -90,11 +90,11 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <OrderSection />
         <MenuSection />
         <BannerCarousel />
         <CouponSection />
         <AmbientSection />
+        <OrderSection />
         <ReviewsSection />
         <LocationSection />
       </main>

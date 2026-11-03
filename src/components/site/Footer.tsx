@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, Instagram, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Instagram, MapPin, Phone } from "lucide-react";
 import logoUrl from "@/assets/logo-rede-da-esfiha.png";
 import { ADDRESS, INSTAGRAM_URL, ORDER_URL, WHATSAPP_URL } from "./data";
 import { Reveal } from "./Reveal";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import fachadaFundo from "@/assets/ambiente-fachada-2.webp";
 
 const NAV = [
@@ -37,7 +38,7 @@ export function Footer() {
               Fazer pedido
             </a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-base border border-brand-white/40 bg-transparent text-brand-white shadow-none hover:bg-brand-white hover:text-espresso">
-              <MessageCircle className="size-4" aria-hidden="true" />
+              <WhatsAppIcon className="size-4" />
               WhatsApp
             </a>
           </div>
@@ -67,7 +68,7 @@ export function Footer() {
               aria-label="WhatsApp da Rede da Esfiha Vila Moraes"
               className="grid size-10 place-items-center rounded-full bg-brand-white/15 transition-[scale,background-color,color] hover:scale-110 hover:bg-brand-white hover:text-burgundy"
             >
-              <MessageCircle className="size-5" />
+              <WhatsAppIcon className="size-5" />
             </a>
           </div>
         </div>
@@ -90,7 +91,7 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             <li>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={link}>
-                <MessageCircle className="size-4 shrink-0 text-gold" aria-hidden="true" />
+                <WhatsAppIcon className="size-4 shrink-0 text-gold" />
                 (11) 96442-7506
               </a>
             </li>

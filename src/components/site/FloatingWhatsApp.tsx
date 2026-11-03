@@ -3,6 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { SendHorizontal, X } from "lucide-react";
 import logoUrl from "@/assets/logo-rede-da-esfiha.png";
 import { EVENTS_WHATSAPP_URL, WHATSAPP_URL } from "./data";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 // Botão do WhatsApp que abre uma janelinha de conversa (como no site do Good Money):
 // assuntos prontos e um campo livre; a mensagem vai escrita pro wa.me em janela nova.
@@ -16,8 +17,6 @@ function waLink(msg: string, base = WHATSAPP_URL) {
   return `${base.split("?")[0]}?text=${encodeURIComponent(msg)}`;
 }
 
-const WA_ICON =
-  "M16.04 3A12.84 12.84 0 0 0 5.09 22.55L3 30l7.64-2a12.83 12.83 0 1 0 5.4-25Zm0 23.52c-1.88 0-3.72-.5-5.33-1.45l-.38-.22-4.53 1.19 1.21-4.42-.25-.4a10.69 10.69 0 1 1 9.28 5.3Zm5.86-8.01c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.72.16-.21.32-.82 1.05-1.01 1.27-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59a9.61 9.61 0 0 1-1.78-2.21c-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.64 0 1.56 1.14 3.07 1.3 3.28.16.21 2.24 3.42 5.42 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.77 2.17-1.52.27-.74.27-1.38.19-1.51-.08-.14-.29-.22-.61-.38Z";
 
 export function FloatingWhatsApp() {
   const [open, setOpen] = useState(false);
@@ -135,7 +134,7 @@ export function FloatingWhatsApp() {
                 aria-label="Sua mensagem"
                 className="min-w-0 flex-1 rounded-full bg-white px-4 py-2 text-base text-[#111] outline-none placeholder:text-[#888] md:text-sm"
               />
-              <button type="submit" aria-label="Enviar pelo WhatsApp" className="grid size-10 shrink-0 place-items-center rounded-full bg-[#1DA851] text-white transition-transform hover:scale-105">
+              <button type="submit" aria-label="Enviar pelo WhatsApp" className="grid size-10 shrink-0 place-items-center rounded-full bg-[#25D366] text-white transition-transform hover:scale-105">
                 <SendHorizontal className="size-4" />
               </button>
             </form>
@@ -149,7 +148,7 @@ export function FloatingWhatsApp() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Fechar conversa do WhatsApp" : "Conversar pelo WhatsApp"}
-        className="focus-gold grid size-12 place-items-center rounded-full bg-[#1DA851] text-white shadow-xl md:size-16"
+        className="focus-gold grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_25px_-8px_rgb(0_0_0/0.45)] md:size-16"
         initial={{ opacity: 0, scale: 0.78 }}
         animate={{ opacity: 1, scale: [0.78, 1.08, 1] }}
         whileHover={{ scale: 1.08 }}
@@ -162,9 +161,9 @@ export function FloatingWhatsApp() {
               <X className="size-6 md:size-7" />
             </motion.span>
           ) : (
-            <motion.svg key="wa" viewBox="0 0 32 32" aria-hidden="true" className="size-7 fill-current md:size-9" initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.6, opacity: 0 }}>
-              <path d={WA_ICON} />
-            </motion.svg>
+            <motion.span key="wa" className="grid place-items-center" initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.6, opacity: 0 }}>
+              <WhatsAppIcon className="size-7 md:size-9" />
+            </motion.span>
           )}
         </AnimatePresence>
       </motion.button>
