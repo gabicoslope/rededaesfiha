@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Copy, Check, MapPin, ShoppingBag, Store } from "lucide-react";
 import esfihas from "@/assets/hero/esfihas.webp";
+import logoUrl from "@/assets/logo-rede-da-esfiha.png";
 import { COUPON, ORDER_URL } from "./data";
 
 // Cupom em faixa de ponta a ponta (referência de voucher enviada pela Gabi em 02/11):
@@ -9,12 +10,14 @@ import { COUPON, ORDER_URL } from "./data";
 // branco com o desconto enorme, o código e os botões. Visual chapado, sem efeitos.
 export function CouponSection() {
   const [copied, setCopied] = useState(false);
+  const [pulos, setPulos] = useState(0);
   const reduce = useReducedMotion();
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(COUPON);
       setCopied(true);
+      setPulos((n) => n + 1);
       setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
@@ -60,6 +63,25 @@ export function CouponSection() {
           aria-hidden="true"
           className="absolute -top-4 left-1/2 size-8 -translate-x-1/2 rotate-45 lg:size-10 bg-brand-white lg:-left-5 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0"
         />
+        {/* gênio espiando do canto do cupom; dá um pulinho quando o código é copiado */}
+        <div aria-hidden="true" className="pointer-events-none absolute -top-12 right-3 z-10 w-20 lg:top-5 lg:right-5 lg:w-24">
+          <div className="genio-flutua">
+            <img key={pulos} src={logoUrl} alt="" width={420} height={399} loading="lazy" className={(pulos ? "genio-pula " : "") + "w-full drop-shadow-[0_10px_14px_rgb(0_0_0/0.3)]"} />
+          </div>
+          <AnimatePresence>
+            {copied && (
+              <motion.span
+                className="absolute -left-20 top-2 whitespace-nowrap rounded-full bg-espresso px-3 py-1.5 text-xs font-bold text-brand-white shadow-lg lg:-left-24 lg:text-sm"
+                initial={{ opacity: 0, scale: 0.6, x: 10 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              >
+                Copiado! ✨
+              </motion.span>
+            )}
+          </AnimatePresence>
+        </div>
         <motion.div {...enter(0.2, { x: 40 })}>
           <div className="flex items-baseline justify-center gap-2 lg:block">
             <p className="font-display text-[4rem] font-bold leading-none text-burgundy lg:text-[10rem]">

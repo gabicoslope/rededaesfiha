@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
+import { Preloader } from "@/components/site/Preloader";
 import { BannerCarousel } from "@/components/site/BannerCarousel";
 import {
   AmbientSection,
@@ -84,6 +85,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-w-0 overflow-x-clip bg-champagne">
+      <Preloader />
       <Header />
       <main>
         <Hero />
