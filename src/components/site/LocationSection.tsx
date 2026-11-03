@@ -10,7 +10,7 @@ const WAZE_URL = `https://waze.com/ul?q=${DESTINO}&navigate=yes`;
 
 export function LocationSection() {
   return (
-    <section id="onde-estamos" className="bg-champagne section-y md:!pb-36">
+    <section id="onde-estamos" className="bg-champagne section-y">
       <div className="container-page grid min-w-0 items-center gap-10 md:grid-cols-[1fr_1.15fr] md:gap-14">
         <div className="min-w-0">
           <Reveal>
@@ -20,11 +20,11 @@ export function LocationSection() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-8 hidden gap-3 md:flex">
+            <div className="mt-8 flex gap-3">
               <MapPin className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden="true" />
-              <div className="min-w-0">
+              <div className="min-w-0 text-sm leading-relaxed md:text-base">
                 <p className="font-semibold text-espresso">Endereço</p>
-                <p className="mt-1 break-words text-sm leading-relaxed text-espresso/80 md:text-base">{ADDRESS}</p>
+                <p className="mt-1 break-words text-espresso/80">{ADDRESS}</p>
               </div>
             </div>
           </Reveal>
@@ -40,12 +40,23 @@ export function LocationSection() {
               </div>
             </div>
           </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-8 flex gap-3 sm:max-w-sm">
+              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn-base flex-1 whitespace-nowrap px-4 bg-burgundy text-brand-white hover:bg-brand-red-deep">
+                Como chegar
+              </a>
+              <a href={WAZE_URL} target="_blank" rel="noopener noreferrer" className="btn-base flex-1 whitespace-nowrap px-4 bg-[#33ccff] text-espresso hover:bg-[#1fb8ec]">
+                Waze
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         {/* foto real da fachada no lugar do mapa embutido (o Google Maps embutido é
             bloqueado na prévia e o endereço exato não existe no OpenStreetMap). Os botões
             abrem a rota no Google Maps ou no Waze. */}
-        <Reveal delay={0.12} className="relative min-w-0 md:overflow-hidden md:bg-espresso md:shadow-[0_20px_40px_-24px_rgb(0_0_0/0.5)]">
+        <Reveal delay={0.12} className="relative min-w-0 overflow-hidden rounded-lg shadow-[0_20px_40px_-24px_rgb(0_0_0/0.5)]">
           <img
             src={fachadaDia}
             alt="Fachada da Rede da Esfiha na Avenida do Cursino, prédio vermelho de dois andares"
@@ -54,23 +65,6 @@ export function LocationSection() {
             loading="lazy"
             className="block aspect-[4/3] w-full object-cover"
           />
-          <div className="relative z-10 mx-3 -mt-10 bg-brand-white p-4 shadow-[0_12px_30px_-12px_rgb(0_0_0/0.45)] md:absolute md:inset-x-4 md:bottom-4 md:mx-0 md:mt-0 md:p-5">
-            <p className="flex items-start gap-2 text-sm leading-snug text-espresso md:text-base">
-              <MapPin className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden="true" />
-              <span>
-                <strong className="block">Rede da Esfiha Vila Moraes</strong>
-                {ADDRESS}
-              </span>
-            </p>
-            <div className="mt-3 flex gap-2">
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="btn-base btn-sm flex-1 bg-burgundy text-brand-white">
-                Como chegar
-              </a>
-              <a href={WAZE_URL} target="_blank" rel="noopener noreferrer" className="btn-base btn-sm flex-1 bg-[#33ccff] text-espresso">
-                Waze
-              </a>
-            </div>
-          </div>
         </Reveal>
       </div>
     </section>
