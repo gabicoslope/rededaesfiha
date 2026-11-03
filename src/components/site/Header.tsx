@@ -36,14 +36,14 @@ export function Header() {
       <div
         className={cn(
           "container-page relative flex items-center gap-4 transition-all duration-300",
-          scrolled ? "h-16 md:h-18" : "h-16 md:h-20",
+          scrolled ? "h-[4.5rem] md:h-18" : "h-24 md:h-20",
         )}
       >
         <a href="#inicio" className="logo-link flex shrink-0 items-center">
           <img
             src={logoUrl}
             alt="Rede da Esfiha Vila Moraes"
-            className={cn("logo-anima w-auto transition-[height] duration-300", scrolled ? "h-11 md:h-12" : "h-12 md:h-14")}
+            className={cn("logo-anima w-auto transition-[height] duration-300", scrolled ? "h-14 md:h-12" : "h-20 md:h-14")}
             width={760}
             height={722}
           />
