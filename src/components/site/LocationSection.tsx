@@ -1,6 +1,7 @@
 import { ArrowRight, MapPin, Clock } from "lucide-react";
 import { ADDRESS } from "./data";
 import { Reveal } from "./Reveal";
+import { Palavras } from "./Palavras";
 
 const MAPS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=Avenida%20do%20Cursino%2C%203216%20-%20Vila%20Moraes%2C%20S%C3%A3o%20Paulo%20-%20SP";
@@ -11,7 +12,9 @@ export function LocationSection() {
       <div className="container-page grid min-w-0 items-center gap-10 md:grid-cols-[1fr_1.15fr] md:gap-14">
         <div className="min-w-0">
           <Reveal>
-            <h2 className="heading-display text-espresso md:text-[4.5rem]">Onde estamos</h2>
+            <h2 className="heading-display text-espresso md:text-[4.5rem]">
+            <Palavras>Onde estamos</Palavras>
+          </h2>
           </Reveal>
 
           <Reveal delay={0.08}>

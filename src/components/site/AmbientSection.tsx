@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Palavras } from "./Palavras";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import fachadaTardeVertical from "@/assets/fachada-2.jpeg";
@@ -100,7 +101,9 @@ export function AmbientSection() {
     <section id="nosso-ambiente" className="overflow-hidden bg-burgundy section-y">
       <div className="container-page min-w-0">
         <Reveal>
-          <h2 className="heading-display text-center text-brand-white">Nosso ambiente</h2>
+          <h2 className="heading-display text-center text-brand-white">
+            <Palavras>Nosso ambiente</Palavras>
+          </h2>
           <p className="mt-3 text-center text-sm text-brand-white/85 md:text-base">
             Dois andares e espaço kids. Arraste ou use as setas pra conhecer.
           </p>

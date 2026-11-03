@@ -4,6 +4,8 @@ import { ArrowRight, ChevronLeft, ChevronRight, Quote, Star } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { GOOGLE_REVIEWS_URL, reviews } from "./data";
 import { Reveal } from "./Reveal";
+import { Palavras } from "./Palavras";
+import salaoFundo from "@/assets/ambiente-superior-1.webp";
 
 function Stars() {
   return (
@@ -52,16 +54,19 @@ export function ReviewsSection() {
   return (
     <section
       id="avaliacoes"
-      className="bg-espresso section-y"
+      className="relative isolate overflow-hidden bg-espresso section-y"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
       onFocusCapture={() => (paused.current = true)}
       onBlurCapture={() => (paused.current = false)}
     >
+      {/* foto real do salão de fundo, escurecida pra leitura */}
+      <img src={salaoFundo} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(15_16_24/0.9),rgb(15_16_24/0.78)_45%,rgb(15_16_24/0.92))]" />
       <div className="container-page">
         <Reveal>
           <h2 className="heading-display mx-auto max-w-xl text-center text-champagne">
-            Veja o que dizem sobre a gente
+            <Palavras>Veja o que dizem sobre a gente</Palavras>
           </h2>
         </Reveal>
 

@@ -532,6 +532,20 @@
 }
 .plate-float { animation: plate-float 7s ease-in-out infinite; }
 .phone-float { animation: phone-float 6s ease-in-out infinite; }
+/* logo do cabeçalho: o gênio chega pulando ao abrir e balança no hover */
+@keyframes logo-chega {
+  0% { opacity: 0; transform: translateY(-28px) rotate(-14deg) scale(0.8); }
+  55% { opacity: 1; transform: translateY(4px) rotate(6deg) scale(1.04); }
+  75% { transform: translateY(-2px) rotate(-3deg) scale(1); }
+  100% { transform: none; }
+}
+@keyframes logo-balanca {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-7deg) scale(1.04); }
+  60% { transform: rotate(5deg) scale(1.04); }
+}
+.logo-anima { transform-origin: 50% 80%; animation: logo-chega 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+.logo-link:hover .logo-anima { animation: logo-balanca 0.6s ease-in-out; }
 @media (prefers-reduced-motion: reduce) {
-  .plate-float, .phone-float { animation: none; }
+  .plate-float, .phone-float, .logo-anima { animation: none !important; }
 }

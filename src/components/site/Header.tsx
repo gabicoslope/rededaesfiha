@@ -40,12 +40,12 @@ export function Header() {
           scrolled ? "h-16 md:h-18" : "h-20 md:h-22",
         )}
       >
-        <a href="#inicio" className="flex shrink-0 items-center gap-2">
+        <a href="#inicio" className="logo-link flex shrink-0 items-center gap-2">
           <img
             src={logoUrl}
             alt="Rede da Esfiha Vila Moraes"
             className={cn(
-              "w-auto transition-all duration-300",
+              "logo-anima w-auto transition-[height] duration-300",
               scrolled ? "h-12 md:h-14" : "h-14 md:h-16",
             )}
             width={760}

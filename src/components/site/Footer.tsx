@@ -3,6 +3,7 @@ import { ArrowRight, Clock, Instagram, MapPin, MessageCircle, Phone } from "luci
 import logoUrl from "@/assets/logo-rede-da-esfiha.png";
 import { ADDRESS, INSTAGRAM_URL, ORDER_URL, WHATSAPP_URL } from "./data";
 import { Reveal } from "./Reveal";
+import fachadaFundo from "@/assets/ambiente-fachada-2.webp";
 
 const NAV = [
   { href: "#inicio", label: "Início" },
@@ -23,7 +24,10 @@ export function Footer() {
     <footer className="relative bg-burgundy text-sm text-brand-white">
       {/* faixa de chamada pro pedido */}
       <div className="container-page">
-        <Reveal className="relative -translate-y-1/2 rounded-2xl bg-espresso px-6 py-7 shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] md:flex md:items-center md:justify-between md:px-10">
+        <Reveal className="relative isolate -translate-y-1/2 overflow-hidden bg-espresso px-6 py-8 shadow-[0_24px_50px_-24px_rgb(0_0_0/0.7)] md:flex md:items-center md:justify-between md:px-10 md:py-10">
+          {/* fachada de verdade no fundo da chamada final */}
+          <img src={fachadaFundo} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover object-[50%_45%]" />
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(15_16_24/0.92)_30%,rgb(15_16_24/0.6))]" />
           <div className="text-center md:text-left">
             <p className="font-display text-2xl font-bold text-champagne md:text-3xl">Bateu a fome?</p>
             <p className="mt-1 text-brand-white/75">Peça agora pelo Anota Aí e receba quentinho em casa.</p>

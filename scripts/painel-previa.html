@@ -46,12 +46,7 @@
         "#pedido{background:" + PRETO + "!important}" +
         "#cupom{background:" + VERMELHO + "!important}#cupom a.btn-base{background:" + PRETO + "!important}" +
         "#nosso-ambiente{background:" + PRETO + "!important}" +
-        "#avaliacoes{background:" + AMARELO + "!important}#avaliacoes h2{color:" + PRETO + "!important}" +
-        "#avaliacoes a.rounded-2xl{background:#fff!important}" +
-        "#avaliacoes button{color:" + PRETO + "!important;border-color:" + PRETO + "!important}" +
-        "#avaliacoes button span{background:rgb(31 31 31/.3)!important}#avaliacoes button[aria-current] span{background:" + PRETO + "!important}" +
-        "#avaliacoes a.btn-base{background:" + PRETO + "!important;color:#fff!important}" +
-        "footer{background:" + PRETO + "!important}footer .bg-espresso{background:" + VERMELHO + "!important}"
+        "footer{background:" + PRETO + "!important}"
     },
     pretoamarelo: {
       nome: "Preto e amarelo",
@@ -89,7 +84,8 @@
       ":root{--font-display:" + f.fam + ",sans-serif!important;--font-sans:" + t.fam + ",sans-serif!important}" +
       ".heading-display{font-weight:" + f.peso + "!important;letter-spacing:" + (f.ls || "0") + "!important}" +
       ".font-display{font-weight:" + Math.max(f.peso, 600) + "!important}" +
-      "body,body p,body li,body a,body button,body input,body span,body small{font-family:" + t.fam + ",sans-serif}" +
+      "body,body p,body li,body a,body button,body input,body small{font-family:" + t.fam + ",sans-serif}" +
+      "body h1 *,body h2 *,body .font-display *{font-family:inherit!important}" +
       "body .heading-display,body .font-display,body h1,body h2{font-family:" + f.fam + ",sans-serif!important}" +
       (t.peso ? "body p,body li{font-weight:" + t.peso + "}" : "");
     document.getElementById("pv-css").textContent = css;

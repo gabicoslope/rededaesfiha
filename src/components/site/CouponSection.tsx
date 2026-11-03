@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, Copy, Check } from "lucide-react";
 import { COUPON, ORDER_URL } from "./data";
 import { Reveal } from "./Reveal";
+import { Palavras } from "./Palavras";
 
 export function CouponSection() {
   const [copied, setCopied] = useState(false);
@@ -22,7 +23,7 @@ export function CouponSection() {
       <div className="container-page">
         <Reveal>
           <h2 className="heading-display mx-auto max-w-2xl text-center text-champagne">
-            Cupom exclusivo para Vila Moraes
+            <Palavras>Cupom exclusivo para Vila Moraes</Palavras>
           </h2>
         </Reveal>
 
