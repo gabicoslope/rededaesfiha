@@ -2,9 +2,17 @@
 # This file lives in public/ and is copied to the root of the build output.
 # Upload it to the same folder as index.html on your hosting.
 
+# Sem listagem de pastas
+Options -Indexes
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Força HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Serve real files and directories directly (assets, termos/index.html, etc.)
   RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -25,4 +33,13 @@
   ExpiresByType image/png "access plus 1 month"
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Cabeçalhos de segurança
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
 </IfModule>
