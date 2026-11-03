@@ -439,9 +439,9 @@
 }
 
 /* Artwork and typographic promos share exactly the same banner frame. */
-.banner-section { position: relative; background: var(--color-champagne); padding: 0 0 3rem; }
+.banner-section { position: relative; background: var(--color-champagne); padding: 0 0 1rem; }
 .banner-carousel { aspect-ratio: 16 / 9; width: 100%; }
-/* artes 16:9: no computador o carrossel fica na largura do conteúdo, senão passaria de 800px de altura */
+/* artes 16:9 de ponta a ponta, em todas as telas (pedido da Gabi em 02/11) */
 .banner-slide img { transition: transform 0.6s ease; }
 .banner-slide a:hover img { transform: scale(1.015); }
 .banner-red { background: var(--color-brand-red-veil); color: var(--color-brand-white); }
@@ -469,8 +469,7 @@
   .banner-cta { margin-top: 10px; min-height: 32px; font-size: 12px; }
 }
 @media (width >= 768px) {
-  .banner-section { padding: 0 0 4.5rem; }
-  .banner-carousel { width: min(100% - 4rem, 64rem); margin-inline: auto; box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.55); }
+  .banner-section { padding: 0 0 1.25rem; }
   .banner-art { padding-inline: 68px; padding-top: 12px; padding-bottom: 32px; }
   .banner-copy { max-width: 78%; }
   .banner-headline { font-size: 34px; }

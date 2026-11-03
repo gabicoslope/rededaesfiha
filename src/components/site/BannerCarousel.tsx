@@ -110,10 +110,10 @@ export function BannerCarousel() {
           ))}
         </div>
       </div>
-      <Button variant="ghost" size="icon" aria-label="Banner anterior" onClick={() => api?.scrollPrev()} className="banner-control absolute left-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex xl:-left-16"><ArrowLeft /></Button>
-      <Button variant="ghost" size="icon" aria-label="Próximo banner" onClick={() => api?.scrollNext()} className="banner-control absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex xl:-right-16"><ArrowRight /></Button>
+      <Button variant="ghost" size="icon" aria-label="Banner anterior" onClick={() => api?.scrollPrev()} className="banner-control absolute left-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex md:left-5"><ArrowLeft /></Button>
+      <Button variant="ghost" size="icon" aria-label="Próximo banner" onClick={() => api?.scrollNext()} className="banner-control absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-full md:inline-flex md:right-5"><ArrowRight /></Button>
       </div>
-      <div className="banner-dots mx-auto mt-4 flex w-fit items-center rounded-full px-1">
+      <div className="banner-dots mx-auto mt-3 flex w-fit items-center rounded-full px-1">
         {banners.map((slide, index) => <Button key={slide.id} variant="ghost" aria-label={`Mostrar slide ${index + 1}: ${slide.eyebrow}`} aria-current={selected === index ? "true" : undefined} onClick={() => api?.scrollTo(index)} className="banner-dot size-6 rounded-full p-0"><span className={cn("block h-1.5 rounded-full bg-brand-white transition-all duration-300", selected === index ? "w-4" : "w-1.5 opacity-50")} /></Button>)}
       </div>
     </section>
