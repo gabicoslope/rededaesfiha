@@ -11,7 +11,6 @@ const NAV = [
   { href: "#cardapio", label: "Cardápio" },
   { href: "#cupom", label: "Cupom" },
   { href: "#nosso-ambiente", label: "Nosso ambiente" },
-  { href: "#avaliacoes", label: "Avaliações" },
   { href: "#onde-estamos", label: "Onde estamos" },
 ];
 
