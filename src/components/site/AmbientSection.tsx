@@ -20,6 +20,9 @@ import superior4 from "@/assets/ambiente-superior-4.webp";
 // Mosaico editorial: fotos de tamanhos diferentes, espaços finos, sem filtros nem
 // etiquetas. "card" é a imagem do mosaico; "full" é a foto em 4:3 (1040x780) que
 // abre ampliada. As fachadas usam o original vertical no mosaico.
+const arrow =
+  "focus-gold absolute top-[calc(50%-1.25rem)] z-10 grid size-11 shrink-0 -translate-y-1/2 place-items-center rounded-full bg-black/60 text-brand-white transition-colors hover:bg-gold hover:text-espresso md:static md:size-14 md:translate-y-0 md:bg-brand-white/15";
+
 const PHOTOS: { card: string; full: string; caption: string; alt: string; position?: string }[] = [
   { card: fachadaTardeVertical, full: fachada2, caption: "Fachada no fim da tarde", alt: "Fachada ao anoitecer com as placas Aberto 24h e a equipe no balcão de entrada", position: "50% 70%" },
   { card: superior2, full: superior2, caption: "Salão do piso superior", alt: "Vista do salão do piso superior a partir da escada, com mesas, sofás e luminárias vermelhas" },
@@ -140,40 +143,37 @@ export function AmbientSection() {
       </div>
 
       <Dialog open={current !== null} onOpenChange={(v) => !v && setOpen(null)}>
-        <DialogContent aria-describedby={undefined} className="max-w-5xl gap-0 border-0 bg-transparent p-0 text-brand-white shadow-none sm:rounded-none [&>button:last-child]:right-3 [&>button:last-child]:top-3 [&>button:last-child]:rounded-full [&>button:last-child]:bg-black/60 [&>button:last-child]:p-2 [&>button:last-child]:text-brand-white [&>button:last-child]:opacity-100">
+        <DialogContent aria-describedby={undefined} className="w-auto max-w-[96vw] gap-0 border-0 bg-transparent p-0 text-brand-white shadow-none sm:rounded-none [&>button:last-child]:right-2 [&>button:last-child]:top-2 [&>button:last-child]:z-20 [&>button:last-child]:rounded-full [&>button:last-child]:bg-black/60 [&>button:last-child]:p-2 [&>button:last-child]:text-brand-white [&>button:last-child]:opacity-100 md:[&>button:last-child]:-right-1 md:[&>button:last-child]:-top-12">
           <DialogTitle className="sr-only">{current ? current.caption : "Foto"}</DialogTitle>
           {current && (
-            <div className="relative overflow-hidden bg-black">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.img
-                  key={current.full}
-                  src={current.full}
-                  alt={current.alt}
-                  width={1040}
-                  height={780}
-                  className="aspect-[4/3] w-full object-cover"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: reduce ? 0 : 0.25 }}
-                />
-              </AnimatePresence>
-              <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-12">
-                <p className="text-sm font-semibold md:text-base">
+            <div className="flex items-center gap-4 md:gap-6">
+              {/* setas nas laterais da foto; no celular ficam por cima das bordas */}
+              <button type="button" onClick={() => step(-1)} aria-label="Foto anterior" className={arrow + " left-2"}>
+                <ChevronLeft className="size-6" />
+              </button>
+              <figure className="relative min-w-0">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.img
+                    key={current.full}
+                    src={current.full}
+                    alt={current.alt}
+                    className="mx-auto block h-auto max-h-[78svh] w-auto max-w-[96vw] object-contain md:max-w-[calc(96vw-8rem)]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: reduce ? 0 : 0.25 }}
+                  />
+                </AnimatePresence>
+                <figcaption className="mt-3 text-center text-sm font-semibold md:text-base">
                   {current.caption}
                   <span className="ml-2 font-normal opacity-70">
                     {open! + 1}/{total}
                   </span>
-                </p>
-                <div className="flex gap-2">
-                  <button type="button" onClick={() => step(-1)} aria-label="Foto anterior" className="focus-gold rounded-full bg-black/60 p-2 transition-colors hover:bg-gold hover:text-espresso">
-                    <ChevronLeft className="size-5" />
-                  </button>
-                  <button type="button" onClick={() => step(1)} aria-label="Próxima foto" className="focus-gold rounded-full bg-black/60 p-2 transition-colors hover:bg-gold hover:text-espresso">
-                    <ChevronRight className="size-5" />
-                  </button>
-                </div>
-              </div>
+                </figcaption>
+              </figure>
+              <button type="button" onClick={() => step(1)} aria-label="Próxima foto" className={arrow + " right-2"}>
+                <ChevronRight className="size-6" />
+              </button>
             </div>
           )}
         </DialogContent>
