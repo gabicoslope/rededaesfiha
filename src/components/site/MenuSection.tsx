@@ -31,7 +31,7 @@ export function MenuSection() {
                     loading="lazy"
                   />
                 </div>
-                <p className="mt-3 font-display text-base font-bold leading-tight text-espresso transition-colors group-hover:text-burgundy md:text-lg">
+                <p className="mt-3 text-sm font-semibold leading-tight text-espresso transition-colors group-hover:text-burgundy md:text-base">
                   {c.name}
                 </p>
               </a>
