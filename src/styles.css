@@ -72,6 +72,7 @@
   --color-cocoa: oklch(0.14 0 0); /* Deep black */
   --color-brand-white: oklch(1 0 0);
   --color-brand-red-deep: oklch(0.46 0.19 27);
+  --color-wine: oklch(0.36 0.13 22); /* rodapé: vermelho vinho */
   --color-brand-red-veil: oklch(0.56 0.22 28); /* Vivid photo veil tuned for white-text AA */
   --shadow-header: 0 10px 30px -18px oklch(0.17 0 0 / 45%);
   --shadow-cookie: 0 -6px 24px oklch(0.17 0 0 / 15%);

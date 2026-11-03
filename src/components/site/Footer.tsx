@@ -19,7 +19,7 @@ const link = "inline-flex min-h-10 items-center gap-2 text-[15px] text-brand-whi
 
 export function Footer() {
   return (
-    <footer className="relative bg-burgundy pb-[calc(4.5rem+env(safe-area-inset-bottom))] text-sm text-brand-white md:pb-0">
+    <footer className="relative bg-wine pb-[calc(4.5rem+env(safe-area-inset-bottom))] text-sm text-brand-white md:pb-0">
       <div className="container-page grid gap-8 pb-10 pt-12 sm:grid-cols-2 md:gap-10 md:pb-12 md:pt-16 lg:grid-cols-[1.3fr_1fr_1.2fr_1.2fr] lg:gap-8">
         <div>
           <img src={logoUrl} alt="Rede da Esfiha Vila Moraes" className="h-24 w-auto" width={420} height={399} loading="lazy" />

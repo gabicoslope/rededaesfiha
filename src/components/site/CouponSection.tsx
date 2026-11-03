@@ -29,7 +29,7 @@ export function CouponSection() {
   });
 
   return (
-    <section id="cupom" className="grid overflow-hidden border-b-[10px] border-burgundy bg-burgundy lg:min-h-[36rem] lg:border-b-0 lg:grid-cols-[1fr_minmax(24rem,36%)]">
+    <section id="cupom" className="grid overflow-hidden bg-burgundy lg:min-h-[36rem] lg:grid-cols-[1fr_minmax(24rem,36%)]">
       {/* lado vermelho */}
       <div className="relative flex flex-col items-center gap-4 overflow-hidden px-5 pb-8 pt-7 text-center text-brand-white lg:flex-row lg:gap-0 lg:text-left lg:py-20 lg:pl-[20rem] lg:pr-12 xl:pl-[32rem]">
         <motion.img
