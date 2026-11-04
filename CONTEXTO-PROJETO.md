@@ -88,3 +88,9 @@ O site está pronto pra publicar. Antes, faltam alguns dados do cliente e dois a
 1. Rode `npm install` (só na primeira vez) e depois `npm run build`.
 2. Compacte todo o conteúdo de `.output/public`, com o `.htaccess` e a pasta `assets`, num ZIP.
 3. No cPanel, envie o ZIP pra pasta do subdomínio `site.rededaesfiha.com.br` e extraia lá, substituindo os arquivos antigos.
+
+
+**Auditoria (04/11) virou a versão principal**
+- A versão da auditoria (fotos tratadas, LGPD, faixa de informações, promoções fixas, cantos retos) agora é o `main` e está no link principal.
+- A versão anterior ficou guardada no ramo `versao-anterior` e no link https://claude.ai/artifact/Uxrdg6YVaNiw9t3gCBsnd1 (nesse link novo as imagens são servidas pelo armazenamento de imagens do próprio link, endereços `/_blob/...`).
+- Campos amarelos "a preencher" (componente `Preencher`): preços por categoria e entrega em `src/components/site/data.ts`; razão social, CNPJ e e-mail na Política de Privacidade.
