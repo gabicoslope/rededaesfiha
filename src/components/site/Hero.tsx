@@ -15,7 +15,7 @@ export function Hero() {
   });
 
   return (
-    <section id="inicio" className="relative overflow-hidden bg-[#d10f10]">
+    <section id="inicio" className="relative overflow-hidden bg-[#d10f10] md:bg-[#a70608]">
       {/* arte do gênio com a comida (05/11): no computador ele fica à direita e o texto à esquerda;
           no celular, versão vertical com o gênio embaixo e o texto no vermelho liso de cima */}
       <picture>
@@ -26,7 +26,7 @@ export function Hero() {
           width={900}
           height={1613}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-top md:object-right"
+          className="absolute inset-0 h-full w-full object-cover object-top md:left-auto md:right-0 md:w-auto md:max-w-none md:object-contain md:[mask-image:linear-gradient(to_right,transparent,black_18%)]"
           initial={reduce ? false : { scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}

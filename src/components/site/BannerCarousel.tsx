@@ -18,11 +18,11 @@ export function BannerCarousel() {
       </div>
 
       <Reveal>
-      <ul className="mt-8 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] md:container-page md:mt-12 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0">
+      <ul className="mt-8 flex snap-x snap-mandatory overflow-x-auto pb-2 [scrollbar-width:none] md:container-page md:mt-12 md:grid md:grid-cols-2 md:gap-5 md:overflow-visible md:pb-0">
         {banners.map((slide) => {
           const image = slide.mobileImage ?? slide.desktopImage;
           return (
-            <li key={slide.id} className="w-[86%] shrink-0 snap-center md:w-auto">
+            <li key={slide.id} className="w-full shrink-0 snap-center md:w-auto">
                 <a
                   href={slide.href}
                   target="_blank"
@@ -48,7 +48,7 @@ export function BannerCarousel() {
         })}
       </ul>
       </Reveal>
-      <p className="mt-3 text-center text-sm text-espresso/70 md:hidden">Arraste para o lado para ver todas</p>
+      <p className="mt-3 text-center text-sm text-espresso/70 md:hidden">Arraste para o lado para ver mais</p>
     </section>
   );
 }

@@ -50,10 +50,6 @@ export function LocationSection() {
                 <p className="mt-1">
                   Bairros atendidos: {DELIVERY.bairros || <Preencher>Vila Moraes, Cursino e região</Preencher>}
                 </p>
-                <p>
-                  Taxa a partir de {DELIVERY.taxa || <Preencher>R$ 0,00</Preencher>} · chega em{" "}
-                  {DELIVERY.tempo || <Preencher>00 min</Preencher>}
-                </p>
               </div>
             </div>
           </Reveal>
