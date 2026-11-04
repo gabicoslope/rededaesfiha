@@ -19,7 +19,7 @@ export function Palavras({ children, delay = 0, stagger = 0.08 }: { children: st
       <span className="sr-only">{children}</span>
       {words.map((w, i) => (
         <span key={i}>
-          <span aria-hidden="true" className="inline-block overflow-hidden pb-[0.12em] align-bottom">
+          <span aria-hidden="true" className="inline-block overflow-hidden pb-[0.25em] -mb-[0.13em] align-bottom">
             <motion.span
               className="inline-block"
               variants={{

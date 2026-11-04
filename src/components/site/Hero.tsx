@@ -47,13 +47,13 @@ export function Hero() {
       <div className="container-page relative flex min-h-[195vw] flex-col items-center justify-start pb-24 pt-10 text-center md:min-h-[min(56vw,calc(100svh-5rem))] md:items-start md:justify-center md:py-24 md:text-left">
         {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
         <motion.h1
-          className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[clamp(5.25rem,5.6vw,7.5rem)]"
+          className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[clamp(5rem,4.5vw,6.25rem)]"
           {...enter(0.2, 24)}
         >
           Esfihas, pizzas e lanches na Vila Moraes
         </motion.h1>
         <motion.p
-          className="mt-4 max-w-[23rem] text-balance text-lg leading-snug text-brand-white md:mt-6 md:max-w-2xl md:text-[clamp(1.5rem,1.6vw,2.1rem)]"
+          className="mt-4 max-w-[23rem] text-balance text-lg leading-snug text-brand-white md:mt-6 md:max-w-2xl md:text-[clamp(1.5rem,1.3vw,1.75rem)]"
           {...enter(0.32)}
         >
           No delivery ou no nosso salão de dois andares, com espaço kids.
@@ -63,11 +63,11 @@ export function Hero() {
             href={ORDER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast xl:h-16 xl:px-12 xl:text-xl"
+            className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast xl:h-14 xl:px-11 xl:text-lg"
           >
             Peça já
           </a>
-          <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso xl:h-16 xl:px-10 xl:text-xl">
+          <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso xl:h-14 xl:px-9 xl:text-lg">
             Ver cardápio
           </a>
         </motion.div>
