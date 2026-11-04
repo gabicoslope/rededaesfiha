@@ -15,8 +15,8 @@ import {
   ReviewsSection,
 } from "@/components/site/Sections";
 import boardAsset from "@/assets/IMGP9352.jpg";
-import heroMesa from "@/assets/hero-mesa.webp";
-import heroMesaMobile from "@/assets/hero-mesa-mobile.webp";
+import heroGenio from "@/assets/hero-genio-recorte.webp";
+import heroGenioMobile from "@/assets/hero-genio-mobile.webp";
 import {
   ADDRESS,
   INSTAGRAM_URL,
@@ -61,8 +61,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     // a foto do topo começa a baixar junto com a página (é o maior elemento da tela)
     links: [
-      { rel: "preload", as: "image", href: heroMesaMobile, media: "(max-width: 767px)", fetchPriority: "high" },
-      { rel: "preload", as: "image", href: heroMesa, media: "(min-width: 768px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroGenioMobile, media: "(max-width: 767px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroGenio, media: "(min-width: 768px)", fetchPriority: "high" },
       { rel: "canonical", href: "https://site.rededaesfiha.com.br/" },
     ],
     meta: [
