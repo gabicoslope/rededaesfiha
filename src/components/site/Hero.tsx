@@ -27,9 +27,10 @@ export function Hero() {
           height={1613}
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-top md:left-auto md:right-0 md:w-auto md:max-w-none md:object-contain md:[mask-image:linear-gradient(to_right,transparent,black_18%)]"
-          initial={reduce ? false : { scale: 1.08 }}
+          // zoom out lento ao abrir a página: a arte começa aproximada e vai se afastando
+          initial={reduce ? false : { scale: 1.25 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 3.2, ease: [0.16, 1, 0.3, 1] }}
         />
       </picture>
 
@@ -46,13 +47,13 @@ export function Hero() {
       <div className="container-page relative flex min-h-[195vw] flex-col items-center justify-start pb-24 pt-10 text-center md:min-h-[min(56vw,calc(100svh-5rem))] md:items-start md:justify-center md:py-24 md:text-left">
         {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
         <motion.h1
-          className="heading-display max-w-[20ch] text-balance md:max-w-[13ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[5.25rem]"
+          className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[clamp(5.25rem,5.6vw,7.5rem)]"
           {...enter(0.2, 24)}
         >
           Esfihas, pizzas e lanches na Vila Moraes
         </motion.h1>
         <motion.p
-          className="mt-4 max-w-[23rem] text-balance text-lg leading-snug text-brand-white md:mt-5 md:max-w-xl md:text-2xl"
+          className="mt-4 max-w-[23rem] text-balance text-lg leading-snug text-brand-white md:mt-6 md:max-w-2xl md:text-[clamp(1.5rem,1.6vw,2.1rem)]"
           {...enter(0.32)}
         >
           No delivery ou no nosso salão de dois andares, com espaço kids.
@@ -62,17 +63,17 @@ export function Hero() {
             href={ORDER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast"
+            className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast xl:h-16 xl:px-12 xl:text-xl"
           >
             Peça já
           </a>
-          <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso">
+          <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso xl:h-16 xl:px-10 xl:text-xl">
             Ver cardápio
           </a>
         </motion.div>
         <motion.a
           href="#avaliacoes"
-          className="mt-6 hidden items-center gap-2 text-base font-semibold md:inline-flex text-brand-white underline-offset-4 hover:underline"
+          className="mt-6 hidden items-center gap-2 text-base font-semibold xl:text-lg md:inline-flex text-brand-white underline-offset-4 hover:underline"
           {...enter(0.56, 12)}
         >
           <Star className="size-5 fill-gold text-gold" aria-hidden="true" />
