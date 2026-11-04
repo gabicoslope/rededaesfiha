@@ -100,7 +100,7 @@ export function AmbientSection() {
                 className={cn("focus-gold group relative block min-h-0 overflow-hidden bg-espresso text-left", t.className)}
                 initial={reduce ? false : "coberta"}
                 whileInView="revelada"
-                viewport={{ once: true, amount: 0.25 }}
+                viewport={{ once: false, amount: 0.25 }}
               >
                 {/* cortina da cor do fundo que sobe e revela a foto */}
                 <motion.span
