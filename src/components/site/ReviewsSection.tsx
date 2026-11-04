@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,14 +20,12 @@ function Stars() {
 
 const averageRating = "4,0";
 const reviewCount = 895;
-const AUTOPLAY_MS = 7000;
 
-// Desenho das avaliações da versão anterior (cards brancos + nota do Google),
-// agora em fundo escuro pra seguir a alternância de cores do modelo.
+// Avaliações em fundo escuro, com cards brancos e a nota do Google.
+// Auditoria 04/11: não passam mais sozinhas (só pelas setas e bolinhas).
 export function ReviewsSection() {
   const [perPage, setPerPage] = useState(1);
   const [page, setPage] = useState(0);
-  const paused = useRef(false);
   const reduce = useReducedMotion();
   const pageCount = Math.ceil(reviews.length / perPage);
 
@@ -42,22 +40,10 @@ export function ReviewsSection() {
     return () => query.removeEventListener("change", update);
   }, []);
 
-  useEffect(() => {
-    if (reduce) return;
-    const id = setInterval(() => {
-      if (!paused.current && !document.hidden) setPage((p) => (p + 1) % pageCount);
-    }, AUTOPLAY_MS);
-    return () => clearInterval(id);
-  }, [pageCount, reduce]);
-
   return (
     <section
       id="avaliacoes"
       className="relative overflow-hidden bg-espresso section-y"
-      onMouseEnter={() => (paused.current = true)}
-      onMouseLeave={() => (paused.current = false)}
-      onFocusCapture={() => (paused.current = true)}
-      onBlurCapture={() => (paused.current = false)}
     >
       <div className="container-page">
         <Reveal>
@@ -81,7 +67,7 @@ export function ReviewsSection() {
                 <Star className="size-4 fill-espresso text-espresso" />
                 <span className="text-sm font-semibold">Avaliações no Google</span>
               </div>
-              <p className="text-xs text-espresso/75">{reviewCount} avaliações, clique pra ver</p>
+              <p className="text-sm text-espresso/80">{reviewCount} avaliações, clique pra ver</p>
             </div>
           </a>
         </Reveal>
@@ -108,12 +94,12 @@ export function ReviewsSection() {
                     </span>
                     <div className="min-w-0">
                       <p className="truncate text-base font-semibold text-espresso">{r.name}</p>
-                      <p className="text-xs text-espresso/70">{r.meta}</p>
+                      <p className="text-sm text-espresso/70">{r.meta}</p>
                     </div>
                   </div>
                   <div className="mt-3 flex items-center gap-2">
                     <Stars />
-                    <span className="text-xs text-espresso/70">{r.when}</span>
+                    <span className="text-sm text-espresso/70">{r.when}</span>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-espresso/90 md:text-base">{r.text}</p>
                 </article>
@@ -129,7 +115,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p - 1 + pageCount) % pageCount)}
             aria-label="Avaliações anteriores"
-            className="size-10 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
+            className="size-11 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
           >
             <ChevronLeft />
           </Button>
@@ -143,7 +129,7 @@ export function ReviewsSection() {
                 onClick={() => setPage(i)}
                 aria-label={`Ir para página ${i + 1}`}
                 aria-current={page === i ? "page" : undefined}
-                className="size-8 rounded-full hover:bg-transparent"
+                className="size-7 rounded-full hover:bg-transparent"
               >
                 <span className={`block h-2.5 rounded-full transition-all duration-300 ${page === i ? "w-6 bg-gold" : "w-2.5 bg-brand-white/35"}`} />
               </Button>
@@ -155,7 +141,7 @@ export function ReviewsSection() {
             size="icon"
             onClick={() => setPage((p) => (p + 1) % pageCount)}
             aria-label="Próximas avaliações"
-            className="size-10 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
+            className="size-11 rounded-full border border-brand-white/30 text-brand-white transition-[scale] hover:scale-110 hover:bg-gold hover:text-espresso"
           >
             <ChevronRight />
           </Button>

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, Instagram, MapPin, Phone } from "lucide-react";
 import logoUrl from "@/assets/logo-rede-da-esfiha.webp";
 import { ADDRESS, INSTAGRAM_URL, WHATSAPP_URL } from "./data";
+import { OPEN_COOKIE_PREFERENCES } from "./CookieBanner";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const NAV = [
@@ -95,7 +96,7 @@ export function Footer() {
           <p className={title}>Formas de pagamento</p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {PAYMENT_METHODS.map((m) => (
-              <li key={m} className="rounded-md bg-brand-white/12 px-3 py-1.5 text-xs font-semibold">
+              <li key={m} className="bg-brand-white/12 px-3 py-1.5 text-sm font-semibold">
                 {m}
               </li>
             ))}
@@ -104,11 +105,19 @@ export function Footer() {
       </div>
 
       <div className="border-t border-brand-white/20">
-        <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-xs text-brand-white/75 md:flex-row">
+        <div className="container-page flex flex-col items-center justify-between gap-3 py-5 text-sm text-brand-white/80 md:flex-row">
           <p>© 2026 Rede da Esfiha Vila Moraes</p>
-          <div className="flex gap-5">
+          <div className="flex flex-wrap justify-center gap-x-5">
             <Link to="/termos" className="py-2 transition-colors hover:text-gold">Termos de uso</Link>
             <Link to="/privacidade" className="py-2 transition-colors hover:text-gold">Política de privacidade</Link>
+            {/* reabre as escolhas de cookies a qualquer momento (LGPD: revogar tem que ser fácil) */}
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_PREFERENCES))}
+              className="py-2 transition-colors hover:text-gold"
+            >
+              Cookies
+            </button>
           </div>
         </div>
       </div>

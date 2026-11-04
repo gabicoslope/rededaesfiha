@@ -41,7 +41,10 @@ Options -Indexes
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
-  Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+  # HSTS sempre ligado: o site só funciona em HTTPS (a regra acima redireciona) e o navegador ignora isso em HTTP
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # CSP básica: ninguém coloca o site dentro de outro, sem plugins antigos e sem trocar a base dos links
+  Header always set Content-Security-Policy "frame-ancestors 'self'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests"
 </IfModule>
 
 # Compressão (deixa HTML, CSS e JS bem menores no 4G)

@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://site.rededaesfiha.com.br/sitemap.xml

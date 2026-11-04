@@ -70,7 +70,7 @@ export function Header() {
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-          className="focus-gold ml-auto grid size-10 place-items-center rounded-full text-espresso transition-colors hover:bg-espresso/5 lg:hidden"
+          className="focus-gold ml-auto grid size-11 place-items-center rounded-full text-espresso transition-colors hover:bg-espresso/5 lg:hidden"
         >
           {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>

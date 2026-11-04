@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Preloader } from "@/components/site/Preloader";
 import { BannerCarousel } from "@/components/site/BannerCarousel";
+import { InfoStrip } from "@/components/site/InfoStrip";
 import {
   AmbientSection,
   CouponSection,
@@ -11,7 +12,6 @@ import {
   Hero,
   LocationSection,
   MenuSection,
-  OrderSection,
   ReviewsSection,
 } from "@/components/site/Sections";
 import boardAsset from "@/assets/IMGP9352.jpg";
@@ -54,11 +54,6 @@ const structuredData = {
       closes: "04:00",
     },
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.0",
-    reviewCount: "895",
-  },
   sameAs: [INSTAGRAM_URL, WHATSAPP_URL],
 };
 
@@ -68,6 +63,7 @@ export const Route = createFileRoute("/")({
     links: [
       { rel: "preload", as: "image", href: heroMesaMobile, media: "(max-width: 767px)", fetchPriority: "high" },
       { rel: "preload", as: "image", href: heroMesa, media: "(min-width: 768px)", fetchPriority: "high" },
+      { rel: "canonical", href: "https://site.rededaesfiha.com.br/" },
     ],
     meta: [
       { title },
@@ -88,6 +84,11 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: description },
     ],
     scripts: [
+      // a tela de abertura aparece só na primeira visita da sessão; nas outras, some antes de pintar
+      {
+        children:
+          "try{if(sessionStorage.getItem('rde-abertura')){document.documentElement.classList.add('sem-abertura')}else{sessionStorage.setItem('rde-abertura','1')}}catch(e){}",
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(structuredData),
@@ -102,15 +103,14 @@ function Index() {
     <div className="min-w-0 overflow-x-clip bg-champagne">
       <Preloader />
       <Header />
-      <main>
+      <main id="conteudo" tabIndex={-1} className="outline-none">
         <Hero />
+        <InfoStrip />
         <MenuSection />
         <BannerCarousel />
         <AmbientSection />
         <CouponSection />
         <ReviewsSection />
-        <OrderSection />
-        {/* Avaliações fora por enquanto (pedido da Gabi em 02/11); o componente continua em ReviewsSection.tsx */}
         <LocationSection />
       </main>
       <Footer />

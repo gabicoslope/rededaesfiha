@@ -9,6 +9,8 @@ export type CookieConsent = {
 
 const STORAGE_KEY = "rde-cookie-consent";
 export const CONSENT_EVENT = "rde-cookie-consent-changed";
+/** Evento pra reabrir as preferências (link "Cookies" no rodapé e na política de privacidade). */
+export const OPEN_COOKIE_PREFERENCES = "rde-abrir-preferencias-cookies";
 
 export function getCookieConsent(): CookieConsent | null {
   if (typeof window === "undefined") return null;
@@ -33,11 +35,22 @@ function saveConsent(consent: CookieConsent) {
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
   const [configuring, setConfiguring] = useState(false);
-  const [analytics, setAnalytics] = useState(true);
-  const [marketing, setMarketing] = useState(true);
+  // Auditoria 04/11 (guia de cookies da ANPD): nada vem marcado; a pessoa liga o que quiser.
+  const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
     if (getCookieConsent() === null) setVisible(true);
+    // reabrir as preferências a qualquer momento, já com a escolha atual
+    const abrir = () => {
+      const atual = getCookieConsent();
+      setAnalytics(atual?.analytics ?? false);
+      setMarketing(atual?.marketing ?? false);
+      setConfiguring(true);
+      setVisible(true);
+    };
+    window.addEventListener(OPEN_COOKIE_PREFERENCES, abrir);
+    return () => window.removeEventListener(OPEN_COOKIE_PREFERENCES, abrir);
   }, []);
 
   const close = useCallback((consent: CookieConsent) => {
@@ -55,10 +68,10 @@ export function CookieBanner() {
     >
       <div className="container-page px-4 py-3 md:py-4">
         <div className="flex flex-col gap-2.5 md:flex-row md:items-center md:justify-between md:gap-6">
-          <p className="flex items-start gap-2.5 text-[13px] leading-snug text-espresso/85 md:text-sm">
+          <p className="flex items-start gap-2.5 text-sm leading-snug text-espresso/90">
             <Cookie className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden />
             <span>
-              Usamos cookies pra medir o alcance das promoções.{" "}
+              Usamos cookies opcionais pra medir visitas e o alcance das promoções. Você escolhe.{" "}
               <Link to="/privacidade" className="font-bold text-brand-red-deep underline underline-offset-2">
                 Política de privacidade
               </Link>
@@ -78,14 +91,14 @@ export function CookieBanner() {
               <button
                 type="button"
                 onClick={() => close({ analytics: false, marketing: false })}
-                className="btn-base h-11 border border-espresso/25 bg-transparent px-3 text-espresso"
+                className="btn-base h-11 bg-espresso px-3 text-brand-white hover:bg-espresso/85"
               >
                 Recusar
               </button>
               <button
                 type="button"
                 onClick={() => close({ analytics: true, marketing: true })}
-                className="btn-base h-11 bg-burgundy px-3 text-brand-white"
+                className="btn-base h-11 bg-espresso px-3 text-brand-white hover:bg-espresso/85"
               >
                 Aceitar
               </button>
@@ -94,16 +107,16 @@ export function CookieBanner() {
         </div>
 
         {configuring && (
-          <div className="mt-3 rounded-xl border border-gold/40 bg-espresso/5 p-3">
+          <div className="mt-3 border border-espresso/15 bg-espresso/5 p-3">
             <ul className="space-y-2">
               <li className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-sm font-bold text-espresso">Essenciais</p>
-                  <p className="text-xs text-espresso/70">
-                    Necessários para o site funcionar. Sempre ativos.
+                  <p className="text-sm text-espresso/75">
+                    Guardam só a sua escolha sobre cookies. Sempre ativos.
                   </p>
                 </div>
-                <span className="rounded-full bg-gold px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-espresso">
+                <span className="shrink-0 bg-gold px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-espresso">
                   Sempre ativos
                 </span>
               </li>
@@ -132,7 +145,7 @@ export function CookieBanner() {
               </button>
               <button
                 type="button"
-                onClick={() => setConfiguring(false)}
+                onClick={() => (getCookieConsent() === null ? setConfiguring(false) : setVisible(false))}
                 className="btn-base h-10 flex-1 border border-burgundy/40 bg-transparent text-espresso hover:bg-burgundy/5"
               >
                 Voltar
@@ -160,7 +173,7 @@ function PreferenceToggle({
     <li className="flex items-start justify-between gap-4">
       <div>
         <p className="text-sm font-bold text-espresso">{label}</p>
-        <p className="text-xs text-espresso/70">{description}</p>
+        <p className="text-sm text-espresso/75">{description}</p>
       </div>
       <button
         type="button"

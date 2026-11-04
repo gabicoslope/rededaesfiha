@@ -29,7 +29,6 @@ function imageFor(id: BannerId, size: "desktop" | "mobile") {
 }
 
 export const banners: BannerSlide[] = [
-  { id: "pedido", eyebrow: "Peça agora", headline: "Deu fome? Peça agora pelo Anota Aí ou WhatsApp. Seu pedido, do seu jeito", cta: "Pedir agora", href: ORDER_URL, theme: "red" },
   // TODO: trocar pelo WhatsApp de eventos quando o João definir (por enquanto vai pro WhatsApp da unidade)
   { id: "festas", eyebrow: "Festas e eventos", headline: "Sua comemoração é aqui! Aniversários e confraternizações na unidade Vila Moraes. Faça sua reserva", cta: "Fazer reserva", href: EVENTS_WHATSAPP_URL, theme: "black" },
   { id: "cashback", eyebrow: "Cashback", headline: "Peça pelo WhatsApp e ganhe cashback", cta: "Pedir pelo WhatsApp", href: WHATSAPP_URL, theme: "red" },

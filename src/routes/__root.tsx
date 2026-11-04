@@ -6,8 +6,10 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { MotionConfig } from "motion/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -25,7 +27,7 @@ function NotFoundComponent() {
         <img src={logoUrl} alt="Rede da Esfiha Vila Moraes" width={420} height={399} className="genio-flutua mx-auto w-44" />
         <p aria-hidden="true" className="mt-2 font-display text-[clamp(5rem,22vw,9rem)] font-bold leading-[0.9] text-gold">404</p>
         <h1 className="mt-3 font-display text-4xl font-bold leading-tight md:text-5xl">Essa página sumiu como mágica</h1>
-        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-brand-white/90">
+        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-brand-white">
           Nem o gênio conseguiu achar o que você procurou. Mas o cardápio continua no mesmo lugar, e quentinho.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -41,7 +43,9 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error: erro, reset }: ErrorComponentProps) {
+  // a versão nova do roteador entrega o erro como "unknown"
+  const error = erro instanceof Error ? erro : new Error(String(erro));
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -127,10 +131,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Tracking />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <CookieBanner />
+      {/* respeita quem pediu "reduzir movimento" no celular/computador em todas as animações */}
+      <MotionConfig reducedMotion="user">
+        <a href="#conteudo" className="pular-conteudo">Pular para o conteúdo</a>
+        <Tracking />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <CookieBanner />
+      </MotionConfig>
     </QueryClientProvider>
   );
 }

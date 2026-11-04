@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
+import { Star } from "lucide-react";
 import heroMesa from "@/assets/hero-mesa.webp";
 import heroMesaMobile from "@/assets/hero-mesa-mobile.webp";
 import { ORDER_URL } from "./data";
@@ -42,16 +43,20 @@ export function Hero() {
       </svg>
 
       <div className="container-page relative flex min-h-[min(46rem,calc(100svh-6rem))] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
-        <motion.h1 className="heading-display !text-[3.6rem] text-brand-white md:!text-[7rem]" {...enter(0.2, 24)}>
-          Rede da Esfiha
+        {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
+        <motion.h1
+          className="heading-display max-w-[20ch] text-balance !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[5.25rem]"
+          {...enter(0.2, 24)}
+        >
+          Esfihas, pizzas e lanches na Vila Moraes
         </motion.h1>
         <motion.p
-          className="mt-3 max-w-[22rem] text-balance text-lg leading-snug text-brand-white md:mt-4 md:max-w-xl md:text-2xl"
+          className="mt-4 max-w-[23rem] text-balance text-lg leading-snug text-brand-white md:mt-5 md:max-w-xl md:text-2xl"
           {...enter(0.32)}
         >
-          Esfihas, pizzas, lanches e pastéis no delivery ou no nosso salão na Vila Moraes.
+          No delivery ou no nosso salão de dois andares, com espaço kids.
         </motion.p>
-        <motion.div className="mt-7 md:mt-9" {...enter(0.44, 16)}>
+        <motion.div className="mt-7 flex flex-wrap justify-center gap-3 md:mt-9" {...enter(0.44, 16)}>
           <a
             href={ORDER_URL}
             target="_blank"
@@ -60,7 +65,18 @@ export function Hero() {
           >
             Peça já
           </a>
+          <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso">
+            Ver cardápio
+          </a>
         </motion.div>
+        <motion.a
+          href="#avaliacoes"
+          className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-brand-white underline-offset-4 hover:underline"
+          {...enter(0.56, 12)}
+        >
+          <Star className="size-5 fill-gold text-gold" aria-hidden="true" />
+          4,0 no Google · 895 avaliações
+        </motion.a>
       </div>
     </section>
   );

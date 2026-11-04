@@ -27,13 +27,13 @@
  */
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -88,7 +88,7 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0px; /* auditoria 04/11: tudo reto */
   --background: oklch(0.99 0.01 80);
   --foreground: oklch(0.17 0 0);
 
@@ -228,7 +228,7 @@
 }
 
 @utility card-base {
-  border-radius: 1rem;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 10px 30px -12px oklch(0.17 0 0 / 35%);
 }
@@ -240,7 +240,7 @@
   gap: 0.5rem;
   height: 3.25rem;
   padding-inline: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 0;
   font-size: 1.0625rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -313,7 +313,7 @@
 
 @utility ticket-card {
   position: relative;
-  border-radius: 1rem;
+  border-radius: 0;
   border: 1px dashed oklch(0.81 0.167 82 / 85%);
   box-shadow: 0 14px 40px -18px oklch(0.17 0 0 / 55%);
   &::before,
@@ -345,7 +345,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.9rem 1.75rem;
-  border-radius: 0.5rem;
+  border-radius: 0;
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 700;
@@ -584,3 +584,15 @@
   .preloader-logo, .preloader-smoke, .genio-flutua, .genio-pula, .genio-balanca:hover { animation: none !important; }
   .preloader-smoke { display: none; }
 }
+
+/* ---------- Auditoria 04/11 ---------- */
+/* abertura só na primeira visita da sessão (o script no <head> marca o <html>) */
+.sem-abertura .preloader { display: none; }
+
+/* link "Pular para o conteúdo" (aparece só ao navegar pelo teclado) */
+.pular-conteudo {
+  position: fixed; left: 1rem; top: -4rem; z-index: 300;
+  background: var(--color-espresso); color: var(--color-brand-white);
+  padding: 0.75rem 1rem; font-weight: 700; transition: top 0.15s;
+}
+.pular-conteudo:focus { top: 1rem; outline: 3px solid var(--color-gold); }

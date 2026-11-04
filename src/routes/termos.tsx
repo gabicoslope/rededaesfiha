@@ -18,6 +18,7 @@ export const Route = createFileRoute("/termos")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://site.rededaesfiha.com.br/termos" }],
   }),
   component: TermsPage,
 });
@@ -26,7 +27,7 @@ function TermsPage() {
   return (
     <div className="bg-champagne">
       <Header />
-      <main className="bg-champagne section-y">
+      <main id="conteudo" tabIndex={-1} className="bg-champagne section-y outline-none">
         <div className="container-page max-w-3xl">
           <Reveal>
             <h1 className="heading-display text-burgundy">Termos de Uso</h1>

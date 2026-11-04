@@ -27,7 +27,7 @@ export function CouponSection() {
   const enter = (delay: number, from: { x?: number; y?: number }) => ({
     initial: reduce ? false : { opacity: 0, ...from },
     whileInView: { opacity: 1, x: 0, y: 0 },
-    viewport: { once: false, amount: 0.3 },
+    viewport: { once: true, amount: 0.3 },
     transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] as const },
   });
 
@@ -45,14 +45,14 @@ export function CouponSection() {
           {...enter(0, { x: -40 })}
         />
         <motion.div className="relative min-w-0 lg:flex-1" {...enter(0.1, { y: 20 })}>
-          <p className="font-display text-base font-bold text-gold lg:text-3xl">Exclusivo do site</p>
-          <h2 className="font-display text-[2.25rem] font-bold leading-none lg:mt-1 lg:text-6xl lg:leading-[0.9] xl:text-7xl 2xl:text-8xl">
+          <p className="inline-block bg-gold px-3 py-1 font-display text-base font-bold text-espresso lg:text-2xl">Exclusivo do site</p>
+          <h2 className="font-display text-[2.25rem] font-bold leading-none mt-2 lg:mt-3 lg:text-6xl lg:leading-[0.9] xl:text-7xl 2xl:text-8xl">
             Cupom de desconto
           </h2>
-          <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-[13px] font-semibold text-brand-white lg:mt-7 lg:justify-start lg:gap-x-6 lg:gap-y-2 lg:text-base">
-            <li className="inline-flex items-center gap-2"><MapPin className="size-5 text-gold" aria-hidden="true" />Só na Vila Moraes</li>
-            <li className="inline-flex items-center gap-2"><Store className="size-5 text-gold" aria-hidden="true" />Pedindo pelo Anota Aí</li>
-            <li className="inline-flex items-center gap-2"><ShoppingBag className="size-5 text-gold" aria-hidden="true" />Pedido mínimo R$ 50</li>
+          <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-sm font-semibold text-brand-white lg:mt-7 lg:justify-start lg:gap-x-6 lg:gap-y-2 lg:text-base">
+            <li className="inline-flex items-center gap-2"><MapPin className="size-5 text-brand-white" aria-hidden="true" />Só na Vila Moraes</li>
+            <li className="inline-flex items-center gap-2"><Store className="size-5 text-brand-white" aria-hidden="true" />Pedindo pelo Anota Aí</li>
+            <li className="inline-flex items-center gap-2"><ShoppingBag className="size-5 text-brand-white" aria-hidden="true" />Pedido mínimo R$ 50</li>
           </ul>
         </motion.div>
       </div>
@@ -71,7 +71,7 @@ export function CouponSection() {
           <AnimatePresence>
             {copied && (
               <motion.span
-                className="absolute -left-20 top-2 whitespace-nowrap rounded-full bg-espresso px-3 py-1.5 text-xs font-bold text-brand-white shadow-lg lg:-left-24 lg:text-sm"
+                className="absolute -left-20 top-2 whitespace-nowrap bg-espresso px-3 py-1.5 text-sm font-bold text-brand-white shadow-lg lg:-left-24 lg:text-sm"
                 initial={{ opacity: 0, scale: 0.6, x: 10 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.8 }}
