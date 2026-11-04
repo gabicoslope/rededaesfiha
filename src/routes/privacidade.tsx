@@ -4,6 +4,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Sections";
 import { OPEN_COOKIE_PREFERENCES } from "@/components/site/CookieBanner";
 import { ADDRESS, WHATSAPP_URL } from "@/components/site/data";
+import { Preencher } from "@/components/site/Preencher";
 
 const title = "Política de Privacidade | Rede da Esfiha Vila Moraes";
 const description =
@@ -23,11 +24,6 @@ export const Route = createFileRoute("/privacidade")({
   }),
   component: PrivacyPage,
 });
-
-// Dados que só a loja pode informar. Ficam destacados em amarelo até serem preenchidos.
-function Preencher({ children }: { children: ReactNode }) {
-  return <mark className="bg-gold/50 px-1 font-semibold text-espresso">{children}</mark>;
-}
 
 function Bloco({ titulo, children }: { titulo: string; children: ReactNode }) {
   return (

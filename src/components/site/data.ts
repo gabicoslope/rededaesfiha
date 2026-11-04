@@ -21,7 +21,15 @@ export const EVENTS_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent("O
 export const ADDRESS = "Avenida do Cursino, 3216 – Vila Moraes, São Paulo – SP";
 export const COUPON = "CUPOMSITE25";
 
-export const categories = [
+// Preço "a partir de" de cada categoria e dados de entrega: preencher com os valores do Anota Aí.
+// Enquanto estiverem vazios, o site mostra um campo amarelo "a preencher" no lugar.
+export const DELIVERY = {
+  bairros: "", // ex.: "Vila Moraes, Cursino, Saúde, Sacomã e região"
+  taxa: "", // ex.: "R$ 5,00"
+  tempo: "", // ex.: "40 a 60 min"
+};
+
+export const categories: { name: string; src: string; alt: string; price?: string }[] = [
   { name: "Esfihas Abertas Salgadas", src: boardAsset, alt: "Tábua com esfihas abertas salgadas variadas, com recheios de carne, queijo e calabresa" },
   { name: "Esfihas Abertas Doces", src: esfihaDoceAsset, alt: "Esfiha aberta doce com cobertura de chocolate derretido" },
   { name: "Pizzas Salgadas", src: pizzaSalgadaAsset, alt: "Pizza salgada metade calabresa e metade mussarela sobre tábua de madeira" },

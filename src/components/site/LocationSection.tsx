@@ -1,6 +1,7 @@
-import { MapPin, Clock } from "lucide-react";
+import { Bike, MapPin, Clock } from "lucide-react";
 import fachadaDia from "@/assets/ambiente-fachada-1.webp";
-import { ADDRESS } from "./data";
+import { ADDRESS, DELIVERY } from "./data";
+import { Preencher } from "./Preencher";
 import { Reveal } from "./Reveal";
 import { Palavras } from "./Palavras";
 
@@ -37,6 +38,22 @@ export function LocationSection() {
                 <p className="mt-1">Todos os dias</p>
                 <p>Loja aberta: 08h às 04h</p>
                 <p>Delivery: 18h às 02h</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.17}>
+            <div className="mt-6 flex gap-3">
+              <Bike className="mt-0.5 size-5 shrink-0 text-burgundy" aria-hidden="true" />
+              <div className="min-w-0 text-sm leading-relaxed text-espresso/80 md:text-base">
+                <p className="font-semibold text-espresso">Entrega</p>
+                <p className="mt-1">
+                  Bairros atendidos: {DELIVERY.bairros || <Preencher>Vila Moraes, Cursino e região</Preencher>}
+                </p>
+                <p>
+                  Taxa a partir de {DELIVERY.taxa || <Preencher>R$ 0,00</Preencher>} · chega em{" "}
+                  {DELIVERY.tempo || <Preencher>00 min</Preencher>}
+                </p>
               </div>
             </div>
           </Reveal>

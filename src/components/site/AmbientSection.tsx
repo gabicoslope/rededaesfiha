@@ -22,11 +22,11 @@ const arrow =
   "focus-gold absolute top-[calc(50%-1.25rem)] z-10 grid size-11 shrink-0 -translate-y-1/2 place-items-center rounded-full bg-black/60 text-brand-white transition-colors hover:bg-gold hover:text-espresso md:static md:size-14 md:translate-y-0 md:bg-brand-white/15";
 
 const PHOTOS: { card: string; full: string; caption: string; alt: string; position?: string }[] = [
-  { card: fachadaTardeVertical, full: fachadaTardeVertical, caption: "Fachada no fim da tarde", alt: "Fachada ao anoitecer com as placas Aberto 24h e a equipe no balcão de entrada", position: "50% 70%" },
+  { card: fachadaTardeVertical, full: fachadaTardeVertical, caption: "Fachada no fim da tarde", alt: "Fachada ao entardecer com as luzes acesas, as placas Aberto 24h e a equipe no balcão de entrada", position: "50% 60%" },
   { card: fachada1, full: fachada1, caption: "Fachada de dia", alt: "Fachada da Rede da Esfiha durante o dia, prédio vermelho de dois andares com o letreiro da marca", position: "38% 50%" },
   { card: superior3, full: superior3, caption: "Espaço kids", alt: "Espaço kids com piscina de bolinhas e brinquedos, protegido por vidro e rede" },
   { card: superior1, full: superior1, caption: "Mesas perto das janelas", alt: "Salão do piso superior com mesas de madeira, janelas amplas e o espaço kids ao fundo" },
-  { card: terreo2, full: terreo2, caption: "Vitrine de salgados", alt: "Balcão com estufa e vitrine de salgados, luminárias vermelhas e painel de lanches na parede", position: "60% 50%" },
+  { card: terreo2, full: terreo2, caption: "Vitrine de salgados", alt: "Balcão com estufa e vitrine de salgados, luminárias vermelhas e painel de lanches na parede", position: "55% 50%" },
   { card: terreo1, full: terreo1, caption: "Salão e balcão do térreo", alt: "Salão do piso térreo com mesas de madeira, balcão de atendimento e a rua ao fundo", position: "40% 50%" },
   { card: superior2, full: superior2, caption: "Salão do piso superior", alt: "Vista do salão do piso superior a partir da escada, com mesas, sofás e luminárias vermelhas" },
   { card: fachadaNoiteVertical, full: fachadaNoiteVertical, caption: "Fachada à noite", alt: "Fachada iluminada à noite, com o salão do segundo andar aparecendo pelas vidraças" },

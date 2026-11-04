@@ -1,10 +1,11 @@
 import { ORDER_URL, categories } from "./data";
 import { Reveal } from "./Reveal";
 import { Palavras } from "./Palavras";
+import { Preencher } from "./Preencher";
 
 // Cardápio no estilo das grandes redes de fast food: foto reta, sem cantos
-// arredondados nem degradês, e o nome embaixo em negrito. No hover, só a foto
-// aproxima e o nome fica vermelho.
+// arredondados nem degradês, o nome embaixo em negrito e o preço "a partir de".
+// No hover, só a foto aproxima e o nome fica vermelho.
 export function MenuSection() {
   return (
     <section id="cardapio" className="bg-champagne section-y">
@@ -31,6 +32,10 @@ export function MenuSection() {
                 </div>
                 <p className="mt-2 font-display text-[15px] font-bold leading-tight text-espresso transition-colors group-hover:text-burgundy md:mt-3 md:text-xl">
                   {c.name}
+                </p>
+                <p className="mt-1 text-sm leading-tight text-espresso/75 md:text-base">
+                  a partir de{" "}
+                  <span className="whitespace-nowrap">{c.price ? <strong className="text-espresso">{c.price}</strong> : <Preencher>R$ 0,00</Preencher>}</span>
                 </p>
               </a>
             </Reveal>
