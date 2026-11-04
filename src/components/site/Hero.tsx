@@ -24,7 +24,7 @@ export function Hero() {
           src={heroMesaMobile}
           alt="O gênio da Rede da Esfiha de braços cruzados atrás de uma tábua com esfihas, pizza, hambúrguer, batata frita, milkshake e refrigerante"
           width={900}
-          height={1613}
+          height={1794}
           fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-bottom md:left-auto md:right-0 md:w-auto md:max-w-none md:object-contain md:[mask-image:linear-gradient(to_right,transparent,black_18%)]"
           // zoom out lento ao abrir a página: a arte começa aproximada e vai se afastando
@@ -44,7 +44,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[179vw] flex-col items-center justify-start pb-24 pt-7 text-center md:min-h-[min(56vw,calc(100svh-5rem))] md:items-start md:justify-center md:py-24 md:text-left">
+      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-[min(56vw,calc(100svh-5rem))] md:items-start md:justify-center md:py-24 md:text-left">
         {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
         <motion.h1
           className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] !text-[clamp(2.3rem,11vw,2.75rem)] !leading-[1.02] text-brand-white md:!text-[clamp(5rem,4.5vw,6.25rem)]"
