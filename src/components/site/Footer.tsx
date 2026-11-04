@@ -8,8 +8,8 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 const NAV = [
   { href: "#inicio", label: "Início" },
   { href: "#cardapio", label: "Cardápio" },
-  { href: "#cupom", label: "Cupom" },
   { href: "#nosso-ambiente", label: "Nosso ambiente" },
+  { href: "#cupom", label: "Cupom" },
   { href: "#onde-estamos", label: "Onde estamos" },
 ];
 
