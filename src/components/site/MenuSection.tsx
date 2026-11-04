@@ -1,7 +1,6 @@
 import { ORDER_URL, categories } from "./data";
 import { Reveal } from "./Reveal";
 import { Palavras } from "./Palavras";
-import { Preencher } from "./Preencher";
 
 // Cardápio no estilo das grandes redes de fast food: foto reta, sem cantos
 // arredondados nem degradês, o nome embaixo em negrito e o preço "a partir de".
@@ -33,10 +32,11 @@ export function MenuSection() {
                 <p className="mt-2 font-display text-[15px] font-bold leading-tight text-espresso transition-colors group-hover:text-burgundy md:mt-3 md:text-xl">
                   {c.name}
                 </p>
-                <p className="mt-1 text-sm leading-tight text-espresso/75 md:text-base">
-                  a partir de{" "}
-                  <span className="whitespace-nowrap">{c.price ? <strong className="text-espresso">{c.price}</strong> : <Preencher>R$ 0,00</Preencher>}</span>
-                </p>
+                {c.price && (
+                  <p className="mt-1 text-sm leading-tight text-espresso/75 md:text-base">
+                    a partir de <strong className="whitespace-nowrap text-espresso">{c.price}</strong>
+                  </p>
+                )}
               </a>
             </Reveal>
           ))}

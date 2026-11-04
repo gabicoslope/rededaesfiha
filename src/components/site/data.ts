@@ -30,17 +30,17 @@ export const DELIVERY = {
 };
 
 export const categories: { name: string; src: string; alt: string; price?: string }[] = [
-  { name: "Esfihas Abertas Salgadas", src: boardAsset, alt: "Tábua com esfihas abertas salgadas variadas, com recheios de carne, queijo e calabresa" },
-  { name: "Esfihas Abertas Doces", src: esfihaDoceAsset, alt: "Esfiha aberta doce com cobertura de chocolate derretido" },
-  { name: "Pizzas Salgadas", src: pizzaSalgadaAsset, alt: "Pizza salgada metade calabresa e metade mussarela sobre tábua de madeira" },
-  { name: "Pizzas Doces", src: pizzaDoceAsset, alt: "Pizza doce com cobertura de chocolate e confeitos" },
-  { name: "Pastéis e Salgados", src: pastelAsset, alt: "Pastel frito dourado e crocante servido em prato" },
-  { name: "Fogazzas", src: fogazzaAsset, alt: "Fogazza assada com massa fofinha e recheio generoso" },
-  { name: "Hambúrguers", src: burgerAsset, alt: "Hambúrguer duplo com queijo derretido, alface e pão brioche" },
-  { name: "Beirutes", src: beiruteAsset, alt: "Sanduíche beirute com pão sírio, carne, queijo e salada" },
-  { name: "Porções", src: porcoesAsset, alt: "Porção de carnes mistas com acompanhamentos em tábua" },
-  { name: "Sobremesas", src: sobremesaAsset, alt: "Petit gâteau com calda de chocolate escorrendo" },
-  { name: "Bebidas", src: bebidasAsset, alt: "Milkshake cremoso com chantilly em copo alto" },
+  { name: "Esfihas Abertas Salgadas", price: "R$ 4,00", src: boardAsset, alt: "Tábua com esfihas abertas salgadas variadas, com recheios de carne, queijo e calabresa" },
+  { name: "Esfihas Abertas Doces", price: "R$ 7,90", src: esfihaDoceAsset, alt: "Esfiha aberta doce com cobertura de chocolate derretido" },
+  { name: "Pizzas Salgadas", price: "R$ 46,00", src: pizzaSalgadaAsset, alt: "Pizza salgada metade calabresa e metade mussarela sobre tábua de madeira" },
+  { name: "Pizzas Doces", price: "R$ 45,00", src: pizzaDoceAsset, alt: "Pizza doce com cobertura de chocolate e confeitos" },
+  { name: "Pastéis e Salgados", price: "R$ 4,00", src: pastelAsset, alt: "Pastel frito dourado e crocante servido em prato" },
+  { name: "Fogazzas", price: "R$ 14,00", src: fogazzaAsset, alt: "Fogazza assada com massa fofinha e recheio generoso" },
+  { name: "Hambúrguers", price: "R$ 20,00", src: burgerAsset, alt: "Hambúrguer duplo com queijo derretido, alface e pão brioche" },
+  { name: "Beirutes", price: "R$ 49,00", src: beiruteAsset, alt: "Sanduíche beirute com pão sírio, carne, queijo e salada" },
+  { name: "Porções", price: "R$ 35,00", src: porcoesAsset, alt: "Porção de carnes mistas com acompanhamentos em tábua" },
+  { name: "Sobremesas", price: "R$ 10,00", src: sobremesaAsset, alt: "Petit gâteau com calda de chocolate escorrendo" },
+  { name: "Bebidas", price: "R$ 5,00", src: bebidasAsset, alt: "Milkshake cremoso com chantilly em copo alto" },
   { name: "Combos", src: combosAsset, alt: "Mesa com variedade de esfihas salgadas e doces e caneca da Rede da Esfiha" },
 ];
 
