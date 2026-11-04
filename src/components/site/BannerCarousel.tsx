@@ -17,7 +17,7 @@ function SlideContent({ slide, first }: { slide: BannerSlide; first: boolean }) 
     return (
       <picture className="block h-full w-full">
         <source media="(min-width: 768px)" srcSet={slide.desktopImage ?? image} />
-        <img src={image} alt={slide.headline} width={1080} height={608} loading={first ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover" />
+        <img src={image} alt={slide.headline} width={1080} height={450} loading={first ? "eager" : "lazy"} decoding="async" className="h-full w-full object-cover" />
       </picture>
     );
   }
