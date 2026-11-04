@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Star } from "lucide-react";
-import heroMesa from "@/assets/hero-mesa.webp";
-import heroMesaMobile from "@/assets/hero-mesa-mobile.webp";
+import heroMesa from "@/assets/hero-genio.webp";
+import heroMesaMobile from "@/assets/hero-genio-mobile.webp";
 import { ORDER_URL } from "./data";
 
 // Topo: foto da mesa vermelha com a comida nas bordas (arte enviada pela Gabi em 02/11,
@@ -15,17 +15,18 @@ export function Hero() {
   });
 
   return (
-    <section id="inicio" className="relative overflow-hidden bg-[#8e1a0e]">
-      {/* no celular, versão vertical da mesma arte (comida nos quatro cantos) */}
+    <section id="inicio" className="relative overflow-hidden bg-[#d10f10]">
+      {/* arte do gênio com a comida (05/11): no computador ele fica à direita e o texto à esquerda;
+          no celular, versão vertical com o gênio embaixo e o texto no vermelho liso de cima */}
       <picture>
         <source media="(min-width: 768px)" srcSet={heroMesa} />
         <motion.img
           src={heroMesaMobile}
-          alt="Mesa de madeira vermelha com esfihas, pizza, hambúrguer, pastéis, esfihas doces e refrigerante"
-          width={941}
-          height={1672}
+          alt="O gênio da Rede da Esfiha de braços cruzados atrás de uma tábua com esfihas, pizza, hambúrguer, batata frita, milkshake e refrigerante"
+          width={900}
+          height={1613}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-top md:object-right"
           initial={reduce ? false : { scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
@@ -42,10 +43,10 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[min(46rem,calc(100svh-6rem))] flex-col items-center justify-center py-24 text-center md:min-h-[min(44rem,84vh)]">
+      <div className="container-page relative flex min-h-[195vw] flex-col items-center justify-start pb-24 pt-10 text-center md:min-h-[min(44rem,84vh)] md:items-start md:justify-center md:py-24 md:text-left">
         {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
         <motion.h1
-          className="heading-display max-w-[20ch] text-balance !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[5.25rem]"
+          className="heading-display max-w-[20ch] text-balance md:max-w-[13ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[5.25rem]"
           {...enter(0.2, 24)}
         >
           Esfihas, pizzas e lanches na Vila Moraes
@@ -56,7 +57,7 @@ export function Hero() {
         >
           No delivery ou no nosso salão de dois andares, com espaço kids.
         </motion.p>
-        <motion.div className="mt-7 flex flex-wrap justify-center gap-3 md:mt-9" {...enter(0.44, 16)}>
+        <motion.div className="mt-7 flex flex-wrap justify-center gap-3 md:mt-9 md:justify-start" {...enter(0.44, 16)}>
           <a
             href={ORDER_URL}
             target="_blank"
@@ -71,7 +72,7 @@ export function Hero() {
         </motion.div>
         <motion.a
           href="#avaliacoes"
-          className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-brand-white underline-offset-4 hover:underline"
+          className="mt-6 hidden items-center gap-2 text-base font-semibold md:inline-flex text-brand-white underline-offset-4 hover:underline"
           {...enter(0.56, 12)}
         >
           <Star className="size-5 fill-gold text-gold" aria-hidden="true" />
