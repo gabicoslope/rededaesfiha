@@ -58,17 +58,17 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-0 md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-20 lg:pt-12 lg:text-left">
+      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-0 md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:max-w-[min(86rem,88vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-20 lg:pt-12 lg:text-left">
         <div className="relative z-[2] flex flex-col items-center lg:items-start">
           {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
           <motion.h1
-            className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] lg:max-w-[14ch] !text-[clamp(2.3rem,11vw,2.75rem)] !leading-[1.02] text-brand-white md:!text-[clamp(3rem,6vw,3.75rem)] lg:!text-[clamp(3rem,4.2vw,5.25rem)]"
+            className="heading-display max-w-[20ch] text-balance md:max-w-[12ch] lg:max-w-[14ch] !text-[clamp(2.3rem,11vw,2.75rem)] !leading-[1.02] text-brand-white md:!text-[clamp(3rem,6vw,3.75rem)] lg:!text-[clamp(3.25rem,5vw,6.25rem)]"
             {...enter(0.2, 24)}
           >
             Esfihas, pizzas e lanches na Vila Moraes
           </motion.h1>
           <motion.p
-            className="mt-3 max-w-[23rem] text-balance text-[clamp(1rem,4.4vw,1.125rem)] leading-snug text-brand-white md:mt-5 md:max-w-[30rem] md:text-xl lg:text-[clamp(1.125rem,1.3vw,1.6rem)]"
+            className="mt-3 max-w-[23rem] text-balance text-[clamp(1rem,4.4vw,1.125rem)] leading-snug text-brand-white md:mt-5 md:max-w-[30rem] md:text-xl lg:max-w-[34rem] lg:text-[clamp(1.25rem,1.45vw,1.9rem)]"
             {...enter(0.32)}
           >
             No delivery ou no nosso salão de dois andares, com espaço kids.
@@ -78,17 +78,17 @@ export function Hero() {
               href={ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast xl:h-14 xl:px-11 xl:text-lg"
+              className="btn-base bg-gold px-10 text-espresso hover:bg-gold-contrast xl:h-14 xl:px-11 xl:text-lg 2xl:h-16 2xl:px-12 2xl:text-xl"
             >
               Peça já
             </a>
-            <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso xl:h-14 xl:px-9 xl:text-lg">
+            <a href="#cardapio" className="btn-base border-2 border-brand-white bg-transparent px-8 text-brand-white hover:bg-brand-white hover:text-espresso xl:h-14 xl:px-9 xl:text-lg 2xl:h-16 2xl:px-10 2xl:text-xl">
               Ver cardápio
             </a>
           </motion.div>
           <motion.a
             href="#avaliacoes"
-            className="mt-6 hidden items-center gap-2 text-base font-semibold text-brand-white underline-offset-4 hover:underline md:inline-flex xl:text-lg"
+            className="mt-6 hidden items-center gap-2 text-base font-semibold text-brand-white underline-offset-4 hover:underline md:inline-flex xl:text-lg 2xl:text-xl"
             {...enter(0.56, 12)}
           >
             <Star className="size-5 fill-gold text-gold" aria-hidden="true" />
@@ -97,7 +97,7 @@ export function Hero() {
         </div>
 
         {/* computador: gênio com a comida ao lado do texto, um pouco além da margem direita */}
-        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-mr-[6vw] lg:w-auto lg:max-w-none">
+        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-mr-[4vw] lg:w-auto lg:max-w-none">
           <picture>
             <source media="(max-width: 767px)" srcSet={VAZIO} />
             <motion.img
@@ -106,7 +106,7 @@ export function Hero() {
               width={1300}
               height={1116}
               fetchPriority="high"
-              className="block h-auto w-full"
+              className="block h-auto w-full lg:max-h-[calc(100svh-11rem)] lg:object-contain"
               {...zoom}
             />
           </picture>
