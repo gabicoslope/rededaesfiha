@@ -43,7 +43,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[195vw] flex-col items-center justify-start pb-24 pt-10 text-center md:min-h-[min(44rem,84vh)] md:items-start md:justify-center md:py-24 md:text-left">
+      <div className="container-page relative flex min-h-[195vw] flex-col items-center justify-start pb-24 pt-10 text-center md:min-h-[min(56vw,calc(100svh-5rem))] md:items-start md:justify-center md:py-24 md:text-left">
         {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
         <motion.h1
           className="heading-display max-w-[20ch] text-balance md:max-w-[13ch] !text-[2.75rem] !leading-[1.02] text-brand-white md:!text-[5.25rem]"
