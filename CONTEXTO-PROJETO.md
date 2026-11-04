@@ -70,7 +70,7 @@ O site está pronto pra publicar. Antes, faltam alguns dados do cliente e dois a
 
 **Depende do cliente**
 1. **CUPOMSITE25 no Anota Aí:** hoje só existe o cupom DESCONTO25 (25% nos produtos, mínimo de R$ 50). O Daniel pediu pra outra agência criar o CUPOMSITE25. **Só publique o site depois que ele existir**, senão o cupom do site dá erro.
-2. **WhatsApp de eventos:** o João vai definir. Quando chegar o número, troque `EVENTS_WHATSAPP_URL` em `src/components/site/data.ts`.
+2. **WhatsApp de eventos:** resolvido em 04/11, Elaine (11) 98341-7628.
 3. **Banner de aniversário, versão de computador:** o logo está escrito "Esfina", a fachada diz "AELIVERY" e os telefones estão errados. Os corretos são (11) 96442-7506 e (11) 5073-7481. O Daniel precisa corrigir.
 4. **Banners de aniversário e de cashback, versão de computador:** vieram mais largos (2000x689 e 2000x667) que os outros (1942x809). Pra não cortar o texto, foram preenchidos em cima e embaixo com fundo desfocado. O ideal é receber os dois em 1942x809 e trocar.
 5. **Horário:** a loja no Anota Aí mostra "Aberto até 23h59", e o site diz loja das 08h às 04h e delivery das 18h às 02h. Confirmar com a loja qual está certo.

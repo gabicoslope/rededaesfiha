@@ -16,8 +16,8 @@ export const INSTAGRAM_URL = "https://www.instagram.com/rededaesfihavilamoraes_o
 export const GOOGLE_REVIEWS_URL =
   "https://www.google.com/maps/search/?api=1&query=Rede+da+Esfiha+Vila+Moraes+Avenida+do+Cursino+3216";
 export const WHATSAPP_URL = "https://wa.me/5511964427506";
-// TODO: trocar pelo WhatsApp de eventos quando definido
-export const EVENTS_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent("Olá! Quero fazer meu aniversário/confraternização na Rede da Esfiha Vila Moraes. Podem me passar informações?")}`;
+// WhatsApp de festas e eventos: Elaine, (11) 98341-7628 (passado pelo João em 04/11)
+export const EVENTS_WHATSAPP_URL = `https://wa.me/5511983417628?text=${encodeURIComponent("Olá, Elaine! Quero fazer meu aniversário/confraternização na Rede da Esfiha Vila Moraes. Pode me passar informações?")}`;
 export const ADDRESS = "Avenida do Cursino, 3216 – Vila Moraes, São Paulo – SP";
 export const COUPON = "CUPOMSITE25";
 
