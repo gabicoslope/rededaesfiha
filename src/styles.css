@@ -449,7 +449,8 @@
 
 /* Artwork and typographic promos share exactly the same banner frame. */
 .banner-section { position: relative; background: var(--color-champagne); padding: 0 0 1rem; }
-.banner-carousel { aspect-ratio: 16 / 9; width: 100%; }
+.banner-carousel { aspect-ratio: 3 / 4; width: 100%; } /* celular: artes verticais */
+@media (width >= 768px) { .banner-carousel { aspect-ratio: 16 / 9; } }
 /* computador: o banner inteiro cabe na tela (abaixo do cabeçalho), centralizado */
 @media (width >= 768px) { .banner-carousel { width: min(100%, calc((100svh - 9rem) * 16 / 9)); margin-inline: auto; } }
 /* artes 16:9 de ponta a ponta, em todas as telas (pedido da Gabi em 02/11) */
