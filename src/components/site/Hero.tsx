@@ -4,7 +4,7 @@ import heroGenio from "@/assets/hero-genio-recorte.webp";
 import heroGenioMobile from "@/assets/hero-genio-mobile.webp";
 import { ORDER_URL } from "./data";
 
-// Pixel transparente: cada tamanho de tela baixa só a sua arte (o <picture> troca pela vazia na outra).
+// Pixel transparente: cada tamanho de tela baixa só a sua arte (o <picture className="hero-respira block overflow-hidden"> troca pela vazia na outra).
 const VAZIO = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
 // Topo com a arte do gênio (05/11).
@@ -84,7 +84,7 @@ export function Hero() {
 
         {/* computador: gênio com a comida ao lado do texto, um pouco além da margem direita */}
         <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-ml-[7vw] lg:-mr-[7vw] lg:w-auto lg:max-w-none">
-          <picture>
+          <picture className="hero-respira block overflow-hidden">
             <source media="(max-width: 767px)" srcSet={VAZIO} />
             <motion.img
               src={heroGenio}
@@ -101,7 +101,7 @@ export function Hero() {
 
       {/* celular: arte vertical logo abaixo do texto. O turbante fica a ~103vw do topo da arte,
           então ela sobe por baixo do texto até o gênio ficar 1,5rem abaixo dos botões. */}
-      <picture>
+      <picture className="hero-respira block overflow-hidden">
         <source media="(min-width: 768px)" srcSet={VAZIO} />
         <motion.img
           src={heroGenioMobile}

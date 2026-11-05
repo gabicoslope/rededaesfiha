@@ -599,3 +599,9 @@
   padding: 0.75rem 1rem; font-weight: 700; transition: top 0.15s;
 }
 .pular-conteudo:focus { top: 1rem; outline: 3px solid var(--color-gold); }
+
+/* topo: depois do zoom de entrada, a arte do gênio continua "respirando" com um zoom lento */
+.hero-respira > img { transform-origin: 50% 60%; }
+.hero-respira { animation: hero-respira 14s ease-in-out 3.2s infinite alternate; transform-origin: 50% 60%; }
+@keyframes hero-respira { from { transform: scale(1); } to { transform: scale(1.06); } }
+@media (prefers-reduced-motion: reduce) { .hero-respira { animation: none; } }
