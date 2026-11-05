@@ -109,7 +109,7 @@ export function Hero() {
           width={900}
           height={1794}
           fetchPriority="high"
-          className="relative z-0 -mt-[calc(103vw-1.5rem)] mb-14 block h-auto w-full md:hidden"
+          className="relative z-0 -mt-[calc(103vw-3rem)] mb-14 block h-auto w-full md:hidden"
           {...zoom}
         />
       </picture>
