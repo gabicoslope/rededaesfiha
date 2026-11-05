@@ -97,7 +97,7 @@ export function Hero() {
         </div>
 
         {/* computador: gênio com a comida ao lado do texto, um pouco além da margem direita */}
-        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-ml-[4vw] lg:-mr-[6vw] lg:w-auto lg:max-w-none">
+        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-ml-[7vw] lg:-mr-[7vw] lg:w-auto lg:max-w-none">
           <picture>
             <source media="(max-width: 767px)" srcSet={VAZIO} />
             <motion.img
@@ -106,7 +106,7 @@ export function Hero() {
               width={1300}
               height={1116}
               fetchPriority="high"
-              className="block h-auto w-full lg:max-h-[calc(100svh-10rem)] lg:object-contain"
+              className="block h-auto w-full lg:max-h-[calc(100svh-8rem)] lg:object-contain"
               {...zoom}
             />
           </picture>
