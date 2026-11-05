@@ -58,7 +58,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-0 md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:max-w-[min(86rem,88vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-20 lg:pt-12 lg:text-left">
+      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-0 md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:max-w-[min(86rem,88vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-16 lg:pt-10 lg:text-left">
         <div className="relative z-[2] flex flex-col items-center lg:items-start">
           {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
           <motion.h1
@@ -97,7 +97,7 @@ export function Hero() {
         </div>
 
         {/* computador: gênio com a comida ao lado do texto, um pouco além da margem direita */}
-        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-mr-[4vw] lg:w-auto lg:max-w-none">
+        <div className="relative hidden md:mt-10 md:block md:w-[88%] md:max-w-[40rem] lg:mt-0 lg:-ml-[4vw] lg:-mr-[6vw] lg:w-auto lg:max-w-none">
           <picture>
             <source media="(max-width: 767px)" srcSet={VAZIO} />
             <motion.img
@@ -106,7 +106,7 @@ export function Hero() {
               width={1300}
               height={1116}
               fetchPriority="high"
-              className="block h-auto w-full lg:max-h-[calc(100svh-11rem)] lg:object-contain"
+              className="block h-auto w-full lg:max-h-[calc(100svh-10rem)] lg:object-contain"
               {...zoom}
             />
           </picture>
