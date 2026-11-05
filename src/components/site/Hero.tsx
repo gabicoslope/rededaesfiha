@@ -107,7 +107,7 @@ export function Hero() {
           src={heroGenioMobile}
           alt={alt}
           width={900}
-          height={1794}
+          height={1904}
           fetchPriority="high"
           className="relative z-0 -mt-[calc(103vw-4rem)] block h-auto w-full md:hidden"
           {...zoom}
