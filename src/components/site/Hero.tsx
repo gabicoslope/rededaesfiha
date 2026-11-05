@@ -32,22 +32,8 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-[#d10f10] md:bg-[#be090a]"
+      className="relative overflow-hidden bg-[#7c0203] md:bg-[#be090a]"
     >
-      {/* celular: arte vertical de fundo */}
-      <picture>
-        <source media="(min-width: 768px)" srcSet={VAZIO} />
-        <motion.img
-          src={heroGenioMobile}
-          alt={alt}
-          width={900}
-          height={1794}
-          fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-bottom md:hidden"
-          {...zoom}
-        />
-      </picture>
-
       {/* curva que separa o topo do cardápio (bege) logo abaixo */}
       <svg
         aria-hidden="true"
@@ -58,7 +44,7 @@ export function Hero() {
         <path d="M0 60 L0 30 Q720 -20 1440 30 L1440 60 Z" fill="var(--color-champagne)" />
       </svg>
 
-      <div className="container-page relative flex min-h-[199vw] flex-col items-center justify-start pb-24 pt-12 text-center md:min-h-0 md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:max-w-[min(86rem,88vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-16 lg:pt-10 lg:text-left">
+      <div className="container-page relative z-[2] flex flex-col items-center justify-start pb-0 pt-[4.5rem] text-center md:pb-24 md:pt-16 lg:grid lg:min-h-[min(48vw,calc(100svh-5rem))] lg:max-w-[min(86rem,88vw)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:justify-normal lg:gap-8 lg:pb-16 lg:pt-10 lg:text-left">
         <div className="relative z-[2] flex flex-col items-center lg:items-start">
           {/* título com a proposta da casa (o nome já está no logo do cabeçalho) */}
           <motion.h1
@@ -112,6 +98,21 @@ export function Hero() {
           </picture>
         </div>
       </div>
+
+      {/* celular: arte vertical logo abaixo do texto. O turbante fica a ~103vw do topo da arte,
+          então ela sobe por baixo do texto até o gênio ficar 1,5rem abaixo dos botões. */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet={VAZIO} />
+        <motion.img
+          src={heroGenioMobile}
+          alt={alt}
+          width={900}
+          height={1794}
+          fetchPriority="high"
+          className="relative z-0 -mt-[calc(103vw-1.5rem)] block h-auto w-full md:hidden"
+          {...zoom}
+        />
+      </picture>
 
       <div
         aria-hidden="true"
