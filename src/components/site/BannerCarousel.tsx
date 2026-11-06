@@ -79,6 +79,7 @@ export function BannerCarousel() {
 
   return (
     <section
+      id="promocoes"
       aria-label="Promoções da Rede da Esfiha"
       aria-roledescription="carrossel"
       className="banner-section relative min-w-0"

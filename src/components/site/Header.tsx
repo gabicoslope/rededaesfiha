@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "#inicio", label: "Início" },
   { href: "#cardapio", label: "Cardápio" },
+  { href: "#promocoes", label: "Promoções" },
   { href: "#nosso-ambiente", label: "Nosso ambiente" },
   { href: "#cupom", label: "Cupom" },
   { href: "#onde-estamos", label: "Onde estamos" },
@@ -16,6 +17,33 @@ const NAV_LINKS = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Links internos (#cardapio, #promocoes...): rola até a seção pelo JavaScript.
+  // Assim funciona igual em qualquer lugar (site, prévia, celular) e o menu do celular
+  // fecha antes de rolar, sem perder o clique.
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element | null)?.closest?.('a[href^="#"]');
+      if (!a) return;
+      const id = a.getAttribute("href")!.slice(1);
+      const alvo = id ? document.getElementById(id) : null;
+      if (!alvo) return;
+      e.preventDefault();
+      setMenuOpen(false);
+      // espera o menu do celular começar a fechar, pra calcular a posição certa
+      requestAnimationFrame(() =>
+        setTimeout(() => {
+          const topo = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+          const y = alvo.getBoundingClientRect().top + window.scrollY - (id === "inicio" ? window.scrollY + 0 : topo + 8);
+          const reduz = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          window.scrollTo({ top: id === "inicio" ? 0 : Math.max(0, y), behavior: reduz ? "auto" : "smooth" });
+        }, 30),
+      );
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
